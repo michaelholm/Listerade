@@ -1,8 +1,10 @@
 == MongoDB Rails Application
 
-This is just a simple search appliance application using Rails 3, MongoDB, and MongoMapper.
+This is a search appliance built using Rails 3, MongoDB, and MongoMapper. It's meant to provide high-speed search functionality on REO listings, 
+and other real estate listings. The search appliance will accept JSON formatted search criteria and a POST input, and will return JSON formatted search results, which will contain
+some basic search result info, and listing id's for all properties returned in the the search.
 
-Currently has only a listing model. 
+The application currently has only a listing model. This will need to be further built out, and may use embedded documents. 
 
 Goals:
 - Accept incoming post with JSON formatted search criteria
@@ -12,14 +14,6 @@ Goals:
 - Perform search, and return only listing id
 - We'll create a secondary server, or component to provide detail on each listing. This may be another instance of Mongo server and rails working as a REST server.
 
-
-/***/
-
-The relevant files are:
-
-* config/application.rb
-* Gemfile
-* config/initializers/mongo.rb
 
 To start the server:
 rails server
