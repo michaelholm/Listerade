@@ -1,0 +1,585 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php print $language->language ?>" lang="<?php print $language->language ?>" dir="<?php print $language->dir ?>">
+  <head>
+    <title>BREOS</title>
+    <%= yield(:head) %>
+	<link type="text/css" rel="stylesheet" media="all" href="/stylesheets/pages.css?Z" />
+	<link type="text/css" rel="stylesheet" media="all" href="/stylesheets/menus.css?Z" />
+	<link type="text/css" rel="stylesheet" media="all" href="/stylesheets/bankreos.css?Z" />
+	<script type="text/javascript" src="/javascripts/jquery.js?Z"></script>
+	<script type="text/javascript" src="/javascripts/superfish.js?Z"></script>
+	<script type="text/javascript" src="/javascripts/jquery.bgiframe.min.js?Z"></script>
+	<script type="text/javascript" src="/javascripts/jquery.hoverIntent.minified.js?Z"></script>
+	<script type="text/javascript" src="/javascripts/nice_menus.js?Z"></script>
+  </head>
+  <body>
+  	<div id='header'>
+  		<div id="headercontent">
+  			<div id="topleft">
+  				<div id="logo"><a href="/"><img src="/images/logot.png" alt="BankReos.com"></img></a></div>
+  			</div>
+  			  			<div id="topright">
+  				<div id="toptoolbar">
+					<div id="smallbox"><img src="/images/signin_icon.png"></div>
+					<div id="smallbox"><a class="signin" href="login">Sign-In</a></div>
+					<fieldset id="signin_menu" style="display: none;">
+						<form id="login_form" method="post" name="login_form">
+					</fieldset>
+					<div id="smallbox"><img src="/images/register_icon.png"></div>
+					<div id="smallbox"><a href="index.php?menu=register">Register</a></div>
+					<div id="topsearchbox">
+						<form style="padding:0px; margin:0px;" method="get" action="">
+							<div id="box1"><input class="searchbtn" type="button" value=" "></div>
+							<div id="box2"><input id="smallbox" class="searchbox" type="text" onblur="this.value='Search your keyword.'" onfocus="this.value=''" value="Search your keyword."></div>
+						</form>
+					</div>
+  				</div>
+  				<div id="topiconbar">
+					<div id="iconsmallbox" style="width:146px"><h3>(877) 627-5670</h3></div>
+					<div id="iconsmallbox"><img height="21" width="22" src="/images/sicon1.png" /></div>
+					<div id="iconsmallbox"><img height="21" width="22" src="/images/sicon2.png" /></div>
+					<div id="iconsmallbox"><img height="21" width="22" src="/images/sicon3.png" /></div>
+					<div id="iconsmallbox"><img height="21" width="22" src="/images/sicon4.png" /></div>
+					<div id="iconsmallbox"><img height="21" width="22" src="/images/sicon5.png" /></div>
+				</div>	
+  				<div id="chatbox">
+  					<table cellspacing="0" cellpadding="0" border="0" width="100%">
+  						<tbody>
+  							<tr>
+  								<td width="54%" valign="top" style="padding-top:0px"><img src="/images/france_home.png" /></td>
+  								<td width="46%" valign="top" rowspan="2"></td>
+  							</tr>
+  							<tr>
+								<td width="54%" valign="top" style="padding-top:3px"><img src="/images/change_country.png" /></td>
+							</tr>
+  						</tbody>
+  					</table>
+  				</div>
+  			</div>
+		</div>
+	</div>
+	<div style="clear:both;"></div>
+
+  	</div>
+	<div class="content">
+    <ul class="nice-menu nice-menu-down" id="nice-menu-1">
+		<li class="menu-114 menu-path-node-1 first  odd "><a href="/trunk/node/1" title="Home">Home</a></li>
+		<li class="menu-115 menuparent menu-path-node-2 even "><a href="/trunk/node/2" title="How it Works">How it Works</a>
+			<ul>
+			<li class="menu-122 menu-path-node-9 first  odd "><a href="/trunk/node/9" title="Buyers">Buyers</a></li>
+			<li class="menu-123 menu-path-node-10 even  last "><a href="/trunk/node/10" title="Sellers">Sellers</a></li>
+			</ul>
+		</li>
+		<li class="menu-116 menuparent menu-path-node-3 odd "><a href="/trunk/node/3" title="Buyers">Buyers</a>
+			<ul>
+			<li class="menu-124 menu-path-node-11 first  odd "><a href="/trunk/node/11" title="Consumer">Consumer</a></li>
+			<li class="menu-125 menu-path-node-12 even "><a href="/trunk/node/12" title="VIP">VIP</a></li>
+			<li class="menu-126 menu-path-node-13 odd "><a href="/trunk/node/13" title="Investor">Investor</a></li>
+			<li class="menu-127 menu-path-node-14 even "><a href="/trunk/node/14" title="Fund">Fund</a></li>
+			<li class="menu-128 menu-path-node-15 odd  last "><a href="/trunk/node/15" title="International">International</a></li>
+			</ul>
+		</li>
+		<li class="menu-117 menuparent menu-path-node-4 even "><a href="/trunk/node/4" title="Sellers">Sellers</a>
+			<ul>
+			<li class="menu-129 menu-path-node-16 first  odd "><a href="/trunk/node/16" title="Banks">Banks</a></li>
+			<li class="menu-130 menu-path-node-17 even "><a href="/trunk/node/17" title="Asset Managers">Asset Managers</a></li>
+			<li class="menu-131 menu-path-node-18 odd "><a href="/trunk/node/18" title="Listing Agents">Listing Agents</a></li>
+			<li class="menu-132 menu-path-node-19 even "><a href="/trunk/node/19" title="Brokers">Brokers</a></li>
+			<li class="menu-133 menu-path-node-20 odd "><a href="/trunk/node/20" title="Law Firms">Law Firms</a></li>
+			<li class="menu-134 menu-path-node-21 even "><a href="/trunk/node/21" title="Developers">Developers</a></li>
+			<li class="menu-135 menu-path-node-22 odd "><a href="/trunk/node/22" title="REIT or Funds">REIT or Funds</a></li>
+			<li class="menu-136 menu-path-node-23 even "><a href="/trunk/node/23" title="Non-Profit">Non-Profilt</a></li>
+			<li class="menu-137 menu-path-node-24 odd  last "><a href="/trunk/node/24" title="Title Companies">Title Companies</a></li>
+			</ul>
+		</li>
+		<li class="menu-118 menuparent menu-path-node-5 odd "><a href="/trunk/node/5" title="Auctions">Auctions</a>
+			<ul>
+			<li class="menu-138 menu-path-node-25 first  odd  last "><a href="/trunk/node/25" title="Real Estate Auctions">Real Estate Auctions</a></li>
+			</ul>
+		</li>
+		<li class="menu-119 menu-path-node-6 even "><a href="/trunk/node/6" title="Sponsors">Sponsors</a></li>
+		<li class="menu-120 menu-path-node-7 odd "><a href="/trunk/node/7" title="Financing">Financing</a></li>
+		<li class="menu-121 menu-path-node-8 even  last "><a href="/trunk/node/8" title="Contact Us">Contact Us</a></li>
+	</ul>
+</div>
+	<div id="wrap"> 
+		<div id="bannerbg">
+			<div id="bannerleft"><img border="0" src="/images/us-map.gif"></div>
+			<div id="bannerright"><img width="340" height="256" src="/images/top_add.png"></div>
+			<div id="bannerbottombox"> 
+				<div id="boxleft"><div id="basic_search"></div></div>		
+				<div id="boxright">
+					<div id="botton1" style="margin-bottom:2px;"><a href="#"><img border="0" src="/images/registre_btn.png"></a></div>
+					<div id="botton2"><a href="#"><img border="0" src="/images/signin_btn.png"></a></div>
+				</div>
+			</div>
+		</div>
+		<div id="centerCol">
+			<div id="container">
+		      	<p class="notice"><%= notice %></p>
+				<p class="alert"><%= alert %></p>
+				
+				  		<div id='actions'>
+				  			<% if user_signed_in? %>
+				  			<div id='user-sign-out'><a href='/users/sign_out'>Sign Out</a></div>
+				  			<% else %>
+				 			  <div id='user-sign-in'><a href='/users/sign_in'>Sign In</a></div>
+				 			<% end %>
+				  			<% unless current_user.nil? %><div id='hello-user'>Hello, <%= current_user.email %></div><% end %>
+				  		</div>
+				<div id='main_content'>
+			      <%= yield %>	
+				</div>
+		    </div>
+		
+			<div class="floatleft" style="height: 240px">
+				<div id="featuredheader"><h3>Featured <span id="featuredheader_blue">Bank REOs</span></h3></div>
+				<div id="featuredWrapper" class="floatleft">
+					<div id='featuredProperties'>
+						<div class="featured_nav floatleft"><img src="/images/arrow_left.png" /></div>
+						<div class='featuredProperty'>
+							<img border="0" src="/images/pic1.png" class="featuredimage" />
+							<p class='featuredPropertyLocation'>Location, Location</p>
+							<p class='featuredPropertyBidInfo'>Starting bid: $249,900</p>
+							<div style="width: 100%"><img width="73" height="23" src="/images/buynow_btn.png" class="featuredimage" /></div>
+						</div>
+						<div class='featuredProperty'>
+							<img border="0" src="/images/pic1.png" class="featuredimage" />
+							<p class='featuredPropertyLocation'>Location, Location</p>
+							<p class='featuredPropertyBidInfo'>Starting bid: $249,900</p>
+							<div style="width: 100%"><img width="73" height="23" src="/images/buynow_btn.png" class="featuredimage" /></div>
+						</div>
+						<div class='featuredProperty'>
+							<img border="0" src="/images/pic1.png" class="featuredimage" />
+							<p class='featuredPropertyLocation'>Location, Location</p>
+							<p class='featuredPropertyBidInfo'>Starting bid: $249,900</p>
+							<div style="width: 100%"><img width="73" height="23" src="/images/buynow_btn.png" class="featuredimage" /></div>
+						</div>
+						<div class='featuredProperty'>
+							<img border="0" src="/images/pic1.png" class="featuredimage" />
+							<p class='featuredPropertyLocation'>Location, Location</p>
+							<p class='featuredPropertyBidInfo'>Starting bid: $249,900</p>
+							<div style="width: 100%"><img width="73" height="23" src="/images/buynow_btn.png" class="featuredimage" /></div>
+						</div>
+						<div class="featured_nav floatleft"><img src="/images/arrow_right.png" /></div>   
+					</div>
+				</div>
+			</div>
+				
+			<div style="clear:both;"></div>
+			
+			<div id="leftcontentbox1" style="margin-top:17px;">
+				<div id="leftcontentbox1">
+					<div id="lefttoolbox">
+						<div id="toolbox" style="padding-top:8px">
+							<div id="toolboxcontent" align="center">
+								<img src="/images/icon1.png">
+							</div>
+							<div id="toolboxcontent" align="center">
+								<a href="#">Brochure Request</a>
+							</div>
+						</div>
+						<div id="toolbox" style="padding-top:5px">
+							<div id="toolboxcontent" align="center">
+								<div align="center"><img width="65" height="45" src="/images/icon2.png"></div>
+							</div>
+							<div id="toolboxcontent" align="center"><a href="#">Financing</a></div>
+						</div>
+						<div id="toolbox" style="padding-top:8px">
+							<div id="toolboxcontent" align="center">
+								<div align="center"><img width="53" height="48" src="/images/icon3.png"></div>
+							</div>
+							<div id="toolboxcontent" align="center"><a href="#">Tools</a></div>
+						</div>
+						<div id="toolbox" style="padding-top:5px">
+							<div id="toolboxcontent" align="center">
+								<div align="center">
+									<a href="index.php?menu=register"><img border="0" src="/images/icon4.png"></a>
+								</div>
+							</div>
+							<div id="toolboxcontent" align="center">
+								<a href="index.php?menu=register">Register Here</a>
+							</div>
+						</div>
+					</div>
+					<div id="righttoolbox">
+						<div id="toolconetnt">
+						
+							<div id="toolbox1">
+								<div id="bluetitle" style="padding-bottom:15px;"></div>
+								<div id="bluecontent"></div>
+								    
+								<div id="button">
+									<table width="100%" cellspacing="0" cellpadding="0" border="0">
+										<tbody>
+											<tr>
+												<td width="52%" valign="top" align="left">
+													<img width="66" height="54" src="<?php echo $node->field_image[0]['filepath']; ?>">
+												</td>
+												<td width="48%" valign="top" align="left" style="padding-top:25px;">
+													<a href="<?php echo $node->field_link[0]['url']; ?>">
+														<img width="86" height="24" border="0" src="/images/readmore_btn.png">
+													</a>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							
+							
+							<div id="toolbox1" style="border:0px none; padding-left:16px; width:180px">
+								<div id="bluetitle"></div>
+								<div id="bluecontent"></div>
+								<div id="button" align="right">
+									<table width="100%" cellspacing="0" cellpadding="0" border="0">
+										<tbody>
+											<tr>
+												<td width="52%" valign="top" align="left">
+													<img width="65" height="65" src="<?php echo $node->field_image[0]['filepath']; ?>">
+												</td>
+												<td width="48%" valign="top" align="left" style="padding-top:25px;">
+													<a href="<?php echo $node->field_link[0]['display_url']; ?>">
+														<img width="86" height="24" border="0" src="/images/readmore_btn.png">
+													</a>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							
+							<div id="toolconetnt"><img width="403" height="23" src="/images/separator1.png"></div>
+							
+							
+							<div id="toolconetnt">
+								<div id="toolbox1">
+									<div id="bluetitle" style="padding-bottom:10px;"></div>
+									<div id="bluecontent"></div>
+									<div id="button" align="right">
+										<table width="100%" cellspacing="0" cellpadding="0" border="0">
+											<tbody>
+												<tr>
+													<td width="52%" valign="top" align="left" style="padding-top:8px">
+														<span style="padding-top:5px;"><img width="51" height="46" src="<?php echo $node->field_image[0]['filepath']; ?>"></span>
+													</td>
+													<td width="48%" valign="top" align="left" style="padding-top:25px;">
+														<a href="<?php echo $node->field_link[0]['display_url']; ?>"><img width="86" height="24" border="0" src="/images/readmore_btn.png"></a>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								
+								
+								<div id="toolbox1" style="border:0px none; padding-left:16px; width:180px">
+									<div id="bluetitle" style="padding-bottom:10px;"></div>
+									<div id="bluecontent"></div>
+									<div id="button" align="right">
+										<table width="100%" cellspacing="0" cellpadding="0" border="0">
+											<tbody>
+												<tr>
+													<td width="52%" valign="top" align="left"><img width="55" height="55" src="<?php echo $node->field_image[0]['filepath']; ?>"></td>
+													<td width="48%" valign="top" align="left" style="padding-top:25px;">
+														<a href="<?php echo $node->field_link[0]['display_url']; ?>"><img width="86" height="24" border="0" src="/images/readmore_btn.png"></a>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div id="leftcontentbox2">
+					<div id="bluebox">
+						<div id="blueinnerbox">
+							<div id="bbluetitle">Bank REO News</div>
+							<div id="bbluecontent">
+								<table width="100%" cellspacing="0" cellpadding="2" border="0">
+									<tbody>
+										<tr>
+											<td valign="top" align="left">
+												<img width="7" height="9" src="/images/bluearrow.png" />
+											</td>
+											<td>Taking part in an event held by Bank REO</td>
+										</tr>
+										<tr>
+											<td valign="top" align="left">
+												<img width="7" height="9" src="/images/bluearrow.png" />
+											</td>
+											<td>Taking part in an event held by Real estate Auction</td>
+										</tr>
+										<tr>
+											<td valign="top" align="left">&nbsp;</td>
+											<td align="right" style="padding-top:5px;">
+												<a href="index.php?menu=NEWS"><img width="86" height="24" border="0" src="/images/readmore_btn.png" /></a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div id="blueinnerbox">
+							<div id="bbluetitle">Bank REO Blog </div>
+							<div id="bbluecontent">
+								<table width="100%" cellspacing="0" cellpadding="2" border="0">
+									<tbody>
+										<tr>
+											<td width="7%" valign="top" align="left"><img width="7" height="9" src="/images/bluearrow.png" /></td>
+											<td width="93%">Taking part in an event held by Real estate Auction </td>
+										</tr>
+										<tr>
+											<td valign="top" align="left"><img width="7" height="9" src="/images/bluearrow.png" /></td>
+											<td>Taking part in an event held by Real estate Auction </td>
+										</tr>
+										<tr>
+											<td valign="top" align="left"><img width="7" height="9" src="/images/bluearrow.png" /></td>
+											<td>Taking part in an event held by Real estate Auction </td>
+										</tr>
+										<tr>
+											<td valign="top" align="left"><img width="7" height="9" src="/images/bluearrow.png" /></td>
+											<td>Taking part in an event held by Real estate Auction </td>
+										</tr>
+										<tr>
+											<td valign="top" align="left">&nbsp;</td>
+											<td align="right" style="padding-top:5px;">
+												<a href="index.php?menu=BLOG"><img width="86" height="24" border="0" src="/images/readmore_btn.png" /></a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div id="blueinnerbox" style="padding-left:8px">
+							<div id="bbluetitle">Video</div>
+							<div id="bbluecontent">
+								<table width="100%" cellspacing="0" cellpadding="2" border="0">
+									<tbody>
+										<tr>
+											<td valign="top" align="left" colspan="2">
+												<table width="100%" cellspacing="0" cellpadding="0" border="0">
+													<tbody>
+														<tr>
+															<td><img width="105" height="66" src="/images/video1.png"></td>
+														</tr>
+														<tr>
+															<td>Auctions held by RealEstateAuctions.com are the most exciting and productive way to purc....</td>
+														</tr>
+													</tbody>
+												</table>
+											</td>
+										</tr>
+										<tr>
+											<td width="7%" valign="top" align="left">&nbsp;</td>
+											<td width="93%" align="right" style="padding-top:5px;">
+												<a href="index.php?menu=VIDEO"><img width="86" height="24" border="0" src="/images/readmore_btn.png"></a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					
+					<div id="bluebox1" style="border-bottom:1px solid #CCCCCC">
+					
+						
+						<div id="blueinnerbox1" style="padding-left:10px;">
+							<div id="bbluetitle1"></div>
+							<div id="bbluecontent1">
+								<table width="100%" cellspacing="0" cellpadding="0" border="0">
+									<tbody>
+										<tr>
+											<td width="65%" valign="top" align="left"></td>
+											<td width="35%" valign="top" align="left"><img width="86" height="96" src="<?php echo $node->field_image[0]['filepath']; ?>"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div id="bbutton1" align="right">
+								<a href="<?php echo $node->field_link[0]['url']; ?>"><img width="86" height="24" border="0" src="/images/readmore_btn.png" /></a>
+							</div>
+						</div>
+						
+						
+						<div id="blueinnerbox2">
+							<div id="bbluetitle2"></div>
+							<div id="bbluecontent2">
+								<table width="100%" cellspacing="0" cellpadding="0" border="0">
+									<tbody>
+										<tr>
+											<td width="62%" valign="top" align="left"></td>
+											<td width="38%" valign="top" align="left">
+												<img width="104" height="89" src="/images/community1.png" />
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div id="bbutton2" align="right" style="padding-top:6px;">
+								<table width="100%" cellspacing="0" cellpadding="0" border="0">
+									<tbody>
+										<tr>
+											<td width="64%">&nbsp;</td>
+											<td width="36%">
+												<a href="<?php echo $node->field_link[0]['display_url']; ?>"><img width="86" height="24" border="0" src="/images/readmore_btn.png" /></a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+						
+					<div id="bluebox1" style="margin-left:1px; ">
+						<div id="marketboxtop" style="word-spacing:0px;">Top Bank REO Markets</div>
+						<div id="marketboxmid">
+							<ul>
+								<li><a href="index.php?menu=city">Atlanta</a></li>
+								<li><a href="index.php?menu=city">Austin</a></li>
+								<li><a href="index.php?menu=city">Baltimore</a></li>
+								<li><a href="index.php?menu=city">Boston</a></li>
+								<li><a href="index.php?menu=city">Charlotte</a></li>
+								<li><a href="index.php?menu=city">Chicago</a></li>
+								<li><a href="index.php?menu=city">Cincinnati</a></li>
+								<li><a href="index.php?menu=city">Cleveland</a></li>
+								<li><a href="index.php?menu=city">Columbus</a></li>
+								<li><a href="index.php?menu=city">Dallas</a></li>
+							</ul>
+							<ul>
+								<li><a href="index.php?menu=city">Denver</a></li>
+								<li><a href="index.php?menu=city">Detroit</a></li>
+								<li><a href="index.php?menu=city">Hartford</a></li>
+								<li><a href="index.php?menu=city">Houston</a></li>
+								<li><a href="index.php?menu=city">Indianapolis</a></li>
+								<li><a href="index.php?menu=city">Jacksonville</a></li>
+								<li><a href="index.php?menu=city">Kansas City</a></li>
+								<li><a href="index.php?menu=city">Las Vegas</a></li>
+								<li><a href="index.php?menu=city">Los Angeles</a></li>
+								<li><a href="index.php?menu=city">Louisville</a></li>
+							</ul>
+							<ul>
+								<li><a href="index.php?menu=city">Memphis</a></li>
+								<li><a href="index.php?menu=city">Miami</a></li>
+								<li><a href="index.php?menu=city">Milwaukee</a></li>
+								<li><a href="index.php?menu=city">Minneapolis</a></li>
+								<li><a href="index.php?menu=city">Naples</a></li>
+								<li><a href="index.php?menu=city">Nashville</a></li>
+								<li><a href="index.php?menu=city">New Orleans</a></li>
+								<li><a href="index.php?menu=city">New York-Newark</a></li>
+								<li><a href="index.php?menu=city">Oklahoma</a></li>
+								<li><a href="index.php?menu=city">Orlando</a></li>
+							</ul>
+							<ul style="padding-left:10px;">
+								<li><a href="index.php?menu=city">Philadelphia</a></li>
+								<li><a href="index.php?menu=city">Phoenix</a></li>
+								<li><a href="index.php?menu=city">Pittsburgh</a></li>
+								<li><a href="index.php?menu=city">Portland</a></li>
+								<li><a href="index.php?menu=city">Providence</a></li>
+								<li><a href="index.php?menu=city">Richmond</a></li>
+								<li><a href="index.php?menu=city">Riverside</a></li>
+								<li><a href="index.php?menu=city">Sacramento</a></li>
+								<li><a href="index.php?menu=city">Salt Lake </a></li>
+								<li><a href="index.php?menu=city">San Antonio</a></li>
+							</ul>
+							<ul style="padding-left:8px;">
+								<li><a href="index.php?menu=city">San Diego</a></li>
+								<li><a href="index.php?menu=city">San Jose</a></li>
+								<li><a href="index.php?menu=city">SanFran</a></li>
+								<li><a href="index.php?menu=city">Sarasota</a></li>
+								<li><a href="index.php?menu=city">Seattle</a></li>
+								<li><a href="index.php?menu=city">St.Louis</a></li>
+								<li><a href="index.php?menu=city">Tampa/St.Pete</a></li>
+								<li><a href="index.php?menu=city">Virginia Beach-Norfolk</a></li>
+								<li><a href="index.php?menu=city">Washington DC.</a></li>
+								<li><a href="index.php?menu=city">West Palm Beach</a></li>
+							</ul>
+						</div>
+						<div id="marketboxbottom"></div>
+					</div>
+					<div id="bluebox1" align="center"><img width="550" height="82" src="/images/add.png"></div>
+				</div>
+			</div>
+		</div>
+
+		<div id='rightCol'>
+			
+			<div id="rightbox1" style="padding-bottom:20px;">
+				<div id="top1">MEET OUR BANK REO EXPERT</div>
+				<div id="top2">
+					<table width="100%" cellspacing="0" cellpadding="0" border="0">
+						<tbody>
+							<tr>
+								<td width="44%" valign="top" align="left"><img width="98" height="116" src="/images/auction_experts.png" /></td>
+								<td class="blacktext1" width="56%" valign="top" align="left">Auctions held by RealEstateAuctions.com are the most exciting and productive way to purc....</td>
+							</tr>
+							<tr>
+								<td valign="top" align="left">&nbsp;</td>
+								<td valign="top" align="right">
+									<a style="text-decoration:none;" href="MEET-OUR-BANK-REO-EXPERT">
+										<div align="right" style="padding-top:6px;"><strong><span class="blacktext1">Read more.</span></strong>.</div>
+									</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div id="top3"></div>				
+			</div>
+			
+			<div style="clear:both;"></div>	
+			
+			<div style="padding-top:20px;" id="rightbox1">
+		     	<div id="top1">MY BANK REOs </div>
+			 
+		     	<div id="top2">
+		       		<table width="100%" cellspacing="0" cellpadding="0" border="0">
+	             		<tbody>
+	             			<tr>
+			               		<td valign="top" align="left"><strong>My Saved Listings</strong></td>
+			             	</tr>
+			             	<tr>
+			               		<td valign="top" align="left"><p><a style="text-decoration:none;" href="index.php?menu=signin"><span class="style1">Log in</span></a> or <a style="text-decoration:none;" href="index.php?menu=register"><span class="style1">create your free account</span></a> to see<br>your saved and recently viewed properties.</p></td>
+			             	</tr>
+			           	</tbody>
+			      	</table>
+				</div>
+				<div id="top3"></div>
+	      	</div>	
+	      	
+	      	<div style="clear:both;"></div>	
+	      	
+			<div style="padding-top:20px" id="rightbox1">   
+	     		<div id="top1">MY SEARCH AND ALERTS </div>
+	     		<div id="top2">
+	       			<table width="100%" cellspacing="0" cellpadding="0" border="0">
+             			<tbody>
+             				<tr>
+				               <td valign="top" align="left"><p><a style="text-decoration:none;" href="index.php?menu=signin"><span class="style1">Log in</span></a> or <a style="text-decoration:none;" href="index.php?menu=register"><span class="style1">create your free account</span></a> to see<br>
+				                  your saved and recently viewed properties.</p></td>
+             				</tr>
+           				</tbody>
+           			</table>    
+	     		</div>
+				<div id="top3"></div>
+       		</div>
+       		   
+       		<div id="rightbox1" style="padding-top:20px;">
+				<img width="289" src="/images/add2.png">
+			</div>
+			   
+			<div id="rightbox1" style="padding-top:10px; padding-bottom:10px">
+				<img width="288" src="/images/ad1.png">
+			</div>
+		</div>
+			   
+		<div style="clear:both;"></div>
+	</div>
+</body>
+</html>
