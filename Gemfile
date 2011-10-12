@@ -2,10 +2,16 @@
 
 require 'rubygems'
 require 'mongo'
+
 source 'http://gemcutter.org'
 
-gem "rails", "3.0.0.beta"
 gem "mongo_mapper"
+gem "rails", "3.0.0"
+
+gem 'devise', '1.1.3'
+gem 'devise-mongo_mapper',
+  :git    => 'git://github.com/collectiveidea/devise-mongo_mapper'
+
 
 if defined?(BSON_C)
   warn 'YAY'
