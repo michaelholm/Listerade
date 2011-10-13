@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php print $language->language ?>" lang="<?php print $language->language ?>" dir="<?php print $language->dir ?>">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>BREOS</title>
     <%= yield(:head) %>
@@ -34,24 +34,18 @@
 			</div>
 		</div>
 		<div id="centerCol">
+	
+			<%= render :partial => "widgets/featured_reos" %>
+			<div style="clear:both;"></div>
+			
 			<div id="container">
 		      	<p class="notice"><%= notice %></p>
 				<p class="alert"><%= alert %></p>
-				
-				  		<div id='actions'>
-				  			<% if user_signed_in? %>
-				  			<div id='user-sign-out'><a href='/users/sign_out'>Sign Out</a></div>
-				  			<% else %>
-				 			  <div id='user-sign-in'><a href='/users/sign_in'>Sign In</a></div>
-				 			<% end %>
-				  			<% unless current_user.nil? %><div id='hello-user'>Hello, <%= current_user.email %></div><% end %>
-				  		</div>
+		
 				<div id='main_content'>
 			      <%= yield %>	
 				</div>
 		    </div>
-		
-			<%= render :partial => "widgets/featured_reos" %>
 				
 			<div style="clear:both;"></div>
 			
@@ -93,18 +87,20 @@
 						<div id="toolconetnt">
 						
 							<div id="toolbox1">
-								<div id="bluetitle" style="padding-bottom:15px;"></div>
-								<div id="bluecontent"></div>
+								<div id="bluetitle" style="padding-bottom:15px;">Who We Are?</div>
+								<div id="bluecontent"><p>
+									When most people think of auctions they think of buying but in order to buy, someone must be.</p>
+								</div>
 								    
 								<div id="button">
 									<table width="100%" cellspacing="0" cellpadding="0" border="0">
 										<tbody>
 											<tr>
 												<td width="52%" valign="top" align="left">
-													<img width="66" height="54" src="<?php echo $node->field_image[0]['filepath']; ?>">
+													<img width="66" height="54" src="sites/default/files/body_icon2.png">
 												</td>
 												<td width="48%" valign="top" align="left" style="padding-top:25px;">
-													<a href="<?php echo $node->field_link[0]['url']; ?>">
+													<a href="">
 														<img width="86" height="24" border="0" src="/images/readmore_btn.png">
 													</a>
 												</td>
@@ -116,17 +112,17 @@
 							
 							
 							<div id="toolbox1" style="border:0px none; padding-left:16px; width:180px">
-								<div id="bluetitle"></div>
-								<div id="bluecontent"></div>
+								<div id="bluetitle">See Properties Before General Public</div>
+								<div id="bluecontent">When most people think of auctions they think of buying but in order to buy, someone must be </div>
 								<div id="button" align="right">
 									<table width="100%" cellspacing="0" cellpadding="0" border="0">
 										<tbody>
 											<tr>
 												<td width="52%" valign="top" align="left">
-													<img width="65" height="65" src="<?php echo $node->field_image[0]['filepath']; ?>">
+													<img width="65" height="65" src="/">
 												</td>
 												<td width="48%" valign="top" align="left" style="padding-top:25px;">
-													<a href="<?php echo $node->field_link[0]['display_url']; ?>">
+													<a href="#">
 														<img width="86" height="24" border="0" src="/images/readmore_btn.png">
 													</a>
 												</td>
@@ -141,17 +137,17 @@
 							
 							<div id="toolconetnt">
 								<div id="toolbox1">
-									<div id="bluetitle" style="padding-bottom:10px;"></div>
-									<div id="bluecontent"></div>
+									<div id="bluetitle" style="padding-bottom:10px;">FAQs</div>
+									<div id="bluecontent">When most people think of auctions they think of buying but in order to buy, someone must be.</div>
 									<div id="button" align="right">
 										<table width="100%" cellspacing="0" cellpadding="0" border="0">
 											<tbody>
 												<tr>
 													<td width="52%" valign="top" align="left" style="padding-top:8px">
-														<span style="padding-top:5px;"><img width="51" height="46" src="<?php echo $node->field_image[0]['filepath']; ?>"></span>
+														<span style="padding-top:5px;"><img width="51" height="46" src="/images/separator1.png"></span>
 													</td>
 													<td width="48%" valign="top" align="left" style="padding-top:25px;">
-														<a href="<?php echo $node->field_link[0]['display_url']; ?>"><img width="86" height="24" border="0" src="/images/readmore_btn.png"></a>
+														<a href="#"><img width="86" height="24" border="0" src="/images/readmore_btn.png"></a>
 													</td>
 												</tr>
 											</tbody>
@@ -161,15 +157,15 @@
 								
 								
 								<div id="toolbox1" style="border:0px none; padding-left:16px; width:180px">
-									<div id="bluetitle" style="padding-bottom:10px;"></div>
-									<div id="bluecontent"></div>
+									<div id="bluetitle" style="padding-bottom:10px;">How to Sell</div>
+									<div id="bluecontent">When most people think of auctions they think of buying but in order to buy, someone must be </div>
 									<div id="button" align="right">
 										<table width="100%" cellspacing="0" cellpadding="0" border="0">
 											<tbody>
 												<tr>
-													<td width="52%" valign="top" align="left"><img width="55" height="55" src="<?php echo $node->field_image[0]['filepath']; ?>"></td>
+													<td width="52%" valign="top" align="left"><img width="55" height="55" src="/images/separator1.png"></td>
 													<td width="48%" valign="top" align="left" style="padding-top:25px;">
-														<a href="<?php echo $node->field_link[0]['display_url']; ?>"><img width="86" height="24" border="0" src="/images/readmore_btn.png"></a>
+														<a href="#"><img width="86" height="24" border="0" src="/images/readmore_btn.png"></a>
 													</td>
 												</tr>
 											</tbody>
@@ -201,13 +197,13 @@
 									<tbody>
 										<tr>
 											<td width="65%" valign="top" align="left"></td>
-											<td width="35%" valign="top" align="left"><img width="86" height="96" src="<?php echo $node->field_image[0]['filepath']; ?>"></td>
+											<td width="35%" valign="top" align="left"><img width="86" height="96" src="/images/separator1.png"></td>
 										</tr>
 									</tbody>
 								</table>
 							</div>
 							<div id="bbutton1" align="right">
-								<a href="<?php echo $node->field_link[0]['url']; ?>"><img width="86" height="24" border="0" src="/images/readmore_btn.png" /></a>
+								<a href="#"><img width="86" height="24" border="0" src="/images/readmore_btn.png" /></a>
 							</div>
 						</div>
 						
@@ -232,7 +228,7 @@
 										<tr>
 											<td width="64%">&nbsp;</td>
 											<td width="36%">
-												<a href="<?php echo $node->field_link[0]['display_url']; ?>"><img width="86" height="24" border="0" src="/images/readmore_btn.png" /></a>
+												<a href="#"><img width="86" height="24" border="0" src="/images/readmore_btn.png" /></a>
 											</td>
 										</tr>
 									</tbody>
