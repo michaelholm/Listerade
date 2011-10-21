@@ -590,6 +590,7 @@ a.bluetext {
     padding: 0 5px 0 0;
     width: 196px;
 }
+#search-tips { font-size: 11px; float:left; margin: 12px 0 0 4px;}
 
 #header #headercontent #toptoolbar #topsearchbox #box1 {
     float: left;

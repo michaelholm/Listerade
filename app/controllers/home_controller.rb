@@ -2,6 +2,8 @@ class HomeController < ApplicationController
   before_filter :authenticate_user!, :only => :token
   
   def index
+  	@listings = Listing.all()
+  
   end
 
   # MAIN NAV #
@@ -98,6 +100,16 @@ class HomeController < ApplicationController
   
   def contact_us
   	render :template => 'home/contact_us'
+  end
+  
+  # Tools
+  def tools
+  	render :template => 'home/utility/tools'
+  end
+  
+  # Brochure
+  def brochure_request
+  	render :template => 'home/utility/brochure_request'
   end
 
 

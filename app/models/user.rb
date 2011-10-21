@@ -1,5 +1,6 @@
 class User
   include MongoMapper::Document
+  plugin MongoMapper::Plugins::Timestamps
   plugin MongoMapper::Devise
 
   devise :database_authenticatable, :confirmable, :lockable, 
@@ -14,4 +15,8 @@ class User
   key :username,      	String
 
   timestamps!
+
+  # Validations.
+  validates_presence_of :first_name, :last_name, :username
+  
 end

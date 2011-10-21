@@ -7,11 +7,13 @@
 	<link type="text/css" rel="stylesheet" media="all" href="/stylesheets/pages.css?Z" />
 	<link type="text/css" rel="stylesheet" media="all" href="/stylesheets/menus.css?Z" />
 	<link type="text/css" rel="stylesheet" media="all" href="/stylesheets/bankreos.css?Z" />
+	<link type="text/css" rel="stylesheet" media="all" href="/stylesheets/pagination.css?Z" />
 	<script type="text/javascript" src="/javascripts/jquery.js?Z"></script>
 	<script type="text/javascript" src="/javascripts/superfish.js?Z"></script>
 	<script type="text/javascript" src="/javascripts/jquery.bgiframe.min.js?Z"></script>
 	<script type="text/javascript" src="/javascripts/jquery.hoverIntent.minified.js?Z"></script>
 	<script type="text/javascript" src="/javascripts/nice_menus.js?Z"></script>
+	<%= javascript_include_tag :on_the_spot %>
   </head>
   <body>
   	<div id='header'>
@@ -28,13 +30,13 @@
 			<div id="bannerbottombox"> 
 				<div id="boxleft"><%= render :partial => "widgets/homesearchform" %></div>		
 				<div id="boxright">
-					<div id="botton1" style="margin-bottom:2px;"><a href="#"><img border="0" src="/images/registre_btn.png"></a></div>
-					<div id="botton2"><a href="#"><img border="0" src="/images/signin_btn.png"></a></div>
+					<div id="botton1" style="margin-bottom:2px;"><a href="/users/sign_up"><img border="0" src="/images/registre_btn.png"></a></div>
+					<div id="botton2"><a href="/users/sign_in"><img border="0" src="/images/signin_btn.png"></a></div>
 				</div>
 			</div>
 		</div>
 		<div id="centerCol">
-	
+		
 			<%= render :partial => "widgets/featured_reos" %>
 			<div style="clear:both;"></div>
 			
@@ -43,206 +45,11 @@
 				<p class="alert"><%= alert %></p>
 		
 				<div id='main_content'>
-			      <%= yield %>	
+			     	<%= yield %>
 				</div>
 		    </div>
-				
-			<div style="clear:both;"></div>
-			
-			<div id="leftcontentbox1" style="margin-top:17px;">
-				<div id="leftcontentbox1">
-					<div id="lefttoolbox">
-						<div id="toolbox" style="padding-top:8px">
-							<div id="toolboxcontent" align="center">
-								<img src="/images/icon1.png">
-							</div>
-							<div id="toolboxcontent" align="center">
-								<a href="#">Brochure Request</a>
-							</div>
-						</div>
-						<div id="toolbox" style="padding-top:5px">
-							<div id="toolboxcontent" align="center">
-								<div align="center"><img width="65" height="45" src="/images/icon2.png"></div>
-							</div>
-							<div id="toolboxcontent" align="center"><a href="#">Financing</a></div>
-						</div>
-						<div id="toolbox" style="padding-top:8px">
-							<div id="toolboxcontent" align="center">
-								<div align="center"><img width="53" height="48" src="/images/icon3.png"></div>
-							</div>
-							<div id="toolboxcontent" align="center"><a href="#">Tools</a></div>
-						</div>
-						<div id="toolbox" style="padding-top:5px">
-							<div id="toolboxcontent" align="center">
-								<div align="center">
-									<a href="index.php?menu=register"><img border="0" src="/images/icon4.png"></a>
-								</div>
-							</div>
-							<div id="toolboxcontent" align="center">
-								<a href="index.php?menu=register">Register Here</a>
-							</div>
-						</div>
-					</div>
-					<div id="righttoolbox">
-						<div id="toolconetnt">
-						
-							<div id="toolbox1">
-								<div id="bluetitle" style="padding-bottom:15px;">Who We Are?</div>
-								<div id="bluecontent"><p>
-									When most people think of auctions they think of buying but in order to buy, someone must be.</p>
-								</div>
-								    
-								<div id="button">
-									<table width="100%" cellspacing="0" cellpadding="0" border="0">
-										<tbody>
-											<tr>
-												<td width="52%" valign="top" align="left">
-													<img width="66" height="54" src="sites/default/files/body_icon2.png">
-												</td>
-												<td width="48%" valign="top" align="left" style="padding-top:25px;">
-													<a href="">
-														<img width="86" height="24" border="0" src="/images/readmore_btn.png">
-													</a>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
-							
-							
-							<div id="toolbox1" style="border:0px none; padding-left:16px; width:180px">
-								<div id="bluetitle">See Properties Before General Public</div>
-								<div id="bluecontent">When most people think of auctions they think of buying but in order to buy, someone must be </div>
-								<div id="button" align="right">
-									<table width="100%" cellspacing="0" cellpadding="0" border="0">
-										<tbody>
-											<tr>
-												<td width="52%" valign="top" align="left">
-													<img width="65" height="65" src="/">
-												</td>
-												<td width="48%" valign="top" align="left" style="padding-top:25px;">
-													<a href="#">
-														<img width="86" height="24" border="0" src="/images/readmore_btn.png">
-													</a>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
-							
-							<div id="toolconetnt"><img width="403" height="23" src="/images/separator1.png"></div>
-							
-							
-							<div id="toolconetnt">
-								<div id="toolbox1">
-									<div id="bluetitle" style="padding-bottom:10px;">FAQs</div>
-									<div id="bluecontent">When most people think of auctions they think of buying but in order to buy, someone must be.</div>
-									<div id="button" align="right">
-										<table width="100%" cellspacing="0" cellpadding="0" border="0">
-											<tbody>
-												<tr>
-													<td width="52%" valign="top" align="left" style="padding-top:8px">
-														<span style="padding-top:5px;"><img width="51" height="46" src="/images/separator1.png"></span>
-													</td>
-													<td width="48%" valign="top" align="left" style="padding-top:25px;">
-														<a href="#"><img width="86" height="24" border="0" src="/images/readmore_btn.png"></a>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
-								
-								
-								<div id="toolbox1" style="border:0px none; padding-left:16px; width:180px">
-									<div id="bluetitle" style="padding-bottom:10px;">How to Sell</div>
-									<div id="bluecontent">When most people think of auctions they think of buying but in order to buy, someone must be </div>
-									<div id="button" align="right">
-										<table width="100%" cellspacing="0" cellpadding="0" border="0">
-											<tbody>
-												<tr>
-													<td width="52%" valign="top" align="left"><img width="55" height="55" src="/images/separator1.png"></td>
-													<td width="48%" valign="top" align="left" style="padding-top:25px;">
-														<a href="#"><img width="86" height="24" border="0" src="/images/readmore_btn.png"></a>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
-								
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<div id="leftcontentbox2">
-					<div id="bluebox">
-						<%= render :partial => "widgets/bankreonews" %>
-						
-						<%= render :partial => "widgets/bankreoblog" %>
-						
-						<%= render :partial => "widgets/bankreovideo" %>
-					</div>
-					
-					<div id="bluebox1" style="border-bottom:1px solid #CCCCCC">
-					
-						
-						<div id="blueinnerbox1" style="padding-left:10px;">
-							<div id="bbluetitle1"></div>
-							<div id="bbluecontent1">
-								<table width="100%" cellspacing="0" cellpadding="0" border="0">
-									<tbody>
-										<tr>
-											<td width="65%" valign="top" align="left"></td>
-											<td width="35%" valign="top" align="left"><img width="86" height="96" src="/images/separator1.png"></td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<div id="bbutton1" align="right">
-								<a href="#"><img width="86" height="24" border="0" src="/images/readmore_btn.png" /></a>
-							</div>
-						</div>
-						
-						
-						<div id="blueinnerbox2">
-							<div id="bbluetitle2"></div>
-							<div id="bbluecontent2">
-								<table width="100%" cellspacing="0" cellpadding="0" border="0">
-									<tbody>
-										<tr>
-											<td width="62%" valign="top" align="left"></td>
-											<td width="38%" valign="top" align="left">
-												<img width="104" height="89" src="/images/community1.png" />
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<div id="bbutton2" align="right" style="padding-top:6px;">
-								<table width="100%" cellspacing="0" cellpadding="0" border="0">
-									<tbody>
-										<tr>
-											<td width="64%">&nbsp;</td>
-											<td width="36%">
-												<a href="#"><img width="86" height="24" border="0" src="/images/readmore_btn.png" /></a>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-						
-					<%= render :partial => "widgets/topreomarkets" %>
-					<div id="bluebox1" align="center"><img width="550" height="82" src="/images/add.png"></div>
-				</div>
-			</div>
-		</div>
-
+		 </div>
+		   
 		<div id='rightCol'>
 			
 			<%= render :partial => "widgets/meetbankreoexpert" %>
@@ -261,7 +68,7 @@
 	       	<%= render :partial => "widgets/rightadbox2" %>	   
 			   
 		</div>
-			   
+							   
 		<div style="clear:both;"></div>
 	</div>
 </body>
