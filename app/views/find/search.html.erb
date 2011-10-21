@@ -5,8 +5,10 @@
 	<div class='search-result-item'>
 		<h2>Listing ID: <%= listing.LN %></h2>
 		<h3>Listing Price: <%= number_to_currency(listing.LP, :precision => 0) %></h3>
-		<p><strong><%= listing.concatAddress unless listing.concatAddress.nil? %></strong></p>
+		<p><strong><%= listing.CONCATADDRESS unless listing.CONCATADDRESS.nil? %></strong></p>
 		<p><%= listing.RE1 + listing.RE2 + listing.RE3 %></p>
 	</div>
 <% end %>
 <%= will_paginate(@listings, :params => { :address => params['address'] }) %>
+<div class='clear'></div>
+<%= render :partial => "widgets/topreomarkets" %>
