@@ -1,0 +1,11 @@
+<h1>Seach Results</h1>
+<h2>Search Term: <%=params[:address]%> with <%= @listings.total_entries %> results</h2>
+<%= @listings.each do |listing| %>
+	
+	<h2><%= listing.ZP %></h2>
+	<p><strong><%= listing.concatAddress unless listing.concatAddress.nil? %></strong></p>
+	<p><%= listing.RE1 %></p>
+	
+	<br />
+<% end %>
+<%= will_paginate(@listings) %>
