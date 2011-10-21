@@ -1,21 +1,18 @@
-# Edit this Gemfile to bundle your application's dependencies.
-
-require 'rubygems'
-require 'mongo'
-
+source "http://rubygems.org"
 source 'http://gemcutter.org'
 
-gem "mongo_mapper"
-gem "rails", "3.0.0"
-
+gem "rails", "3.0.3"
+gem "bson", "~>1.4.1"
+gem 'bson_ext'
+gem "mongo_mapper", :require => "mongo_mapper"
+gem "parslet"
+gem "faker", :group => :test
+gem "heroku"
+gem 'will_paginate'
 gem 'devise', '1.1.3'
-gem 'devise-mongo_mapper',
-  :git    => 'git://github.com/collectiveidea/devise-mongo_mapper'
+gem 'devise-mongo_mapper', :git => 'git://github.com/collectiveidea/devise-mongo_mapper'
 
-
-if defined?(BSON_C)
-  warn 'YAY'
-end
+gem "on_the_spot"
 
 ## Bundle edge rails:
 # gem "rails", :git => "git://github.com/rails/rails.git"
