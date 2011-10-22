@@ -33,23 +33,30 @@ class FindController < ApplicationController
 
   	parser = AddressParser.new
   	if is_number?(params[:address]) then 
-	  	address_hash = parser.zip.parse(params[:address]) 
+  		# zip code
+	  	address_hash = parser.zip.parse(params[:address])
+	elsif params[:address].length == 2 then
+		# state only
+		params[:address] = params[:address].strip.upcase
+		address_hash = parser.state.parse(params[:address])
 	else
+		# city, state, zip
 		begin address_hash = parser.csz.parse(params[:address])
 			rescue
+			# city
 		  	address_hash = parser.city1.parse(params[:address]) unless params[:address].nil?
 		end 
 	end
 	
 	# new hash for search keys
 	skeys = {}
-
+	
 	if address_hash[:city] then skeys["CIT"] = /#{address_hash[:city]}/i end
 	if address_hash[:city1] then skeys["CIT"] = /#{address_hash[:city1]}/i end
   	if address_hash[:state] then skeys["STATE"] = "#{address_hash[:state]}" end
   	if address_hash[:zip] then
   		zip = address_hash[:zip]
-  		skeys["ZP"] = "#{zip}" 
+  		skeys["ZP"] = zip.to_i
   	end
   	  	
   	#skeys = skeys[0..-1].to_s
