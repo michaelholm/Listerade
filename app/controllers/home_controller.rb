@@ -2,7 +2,11 @@ class HomeController < ApplicationController
   before_filter :authenticate_user!, :only => :token
   
   def index
-  	@listings = Listing.all()
+  	@listings = Listing.paginate({
+		  :sort => :LP.desc,
+		  :per_page => 15, 
+		  :page     => params[:page],
+		})
   
   end
 

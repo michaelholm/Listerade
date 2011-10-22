@@ -74,10 +74,8 @@ class Listing
   
   
   
-  private
- 
-	  def set_concatAddress
-	    self.concatAddress = "#{self.HSN} #{self.CP} #{self.STR} #{self.STREETSUFFIX} #{self.CIT} #{self.STATE} #{self.ZP}".squeeze(" ").strip
+	  def full_address
+	    "#{self.HSN} #{self.CP} #{self.STR} #{self.STREETSUFFIX} #{self.CIT} #{self.STATE} #{self.ZP}".squeeze(" ").strip
 	  end
  
 end
