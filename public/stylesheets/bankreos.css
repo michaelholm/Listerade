@@ -1949,3 +1949,12 @@ Menu no Span in chrome menu
 #nice-menu-1 li ul li 
 #nice-menu-1 li ul li a 
 */
+
+
+div.search-result-item { 
+	padding: 4px;
+	border: 1px solid #000;
+	background-color: #efefef;
+	margin: 4px 0;
+	
+	}

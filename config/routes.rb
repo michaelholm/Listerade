@@ -1,7 +1,5 @@
 Mongo::Application.routes.draw do |map|
 
-  resources :pages
-
   devise_for :users
   
   # Resources
@@ -12,7 +10,7 @@ Mongo::Application.routes.draw do |map|
 	  collection do
 	    put :update_attribute_on_the_spot
 	  end
-	end
+  end
   
   # Primary Navigation routes
   match '/how-it-works' => 'home#how_it_works'

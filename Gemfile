@@ -6,7 +6,7 @@ gem "bson", "~>1.4.1"
 gem 'bson_ext'
 gem "mongo_mapper", :require => "mongo_mapper"
 gem "parslet"
-gem "faker", :group => :test
+gem "faker" #, :group => :test
 gem "heroku"
 gem 'will_paginate'
 gem 'devise', '1.1.3'
