@@ -1956,5 +1956,10 @@ div.search-result-item {
 	border: 1px solid #000;
 	background-color: #efefef;
 	margin: 4px 0;
+	clear:right;
+}
 	
-	}
+	
+div#listingImg { float:right; margin: 5px 5px 0 0; }
+
+span.listingLabel { font-weight: bold; }

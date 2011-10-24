@@ -81,9 +81,9 @@ class FindController < ApplicationController
   
   # Find by Listing ID
   def find_by_ln
- 	@listings = Listing.where(:LN => params[:ln]).fields(:LN, :RE1, :RE2, :RE3).all
+ 	@listing = Listing.where(:LN => params[:ln].to_i).first
  	
- 	render :template => 'find/search'
+ 	render :template => 'listings/show'
   end
 
 end
