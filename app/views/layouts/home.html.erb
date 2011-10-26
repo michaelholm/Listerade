@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>BREOS</title>
+    <%= yield(:head) %>
+	<link type="text/css" rel="stylesheet" media="all" href="/stylesheets/pages.css?Z" />
+	<link type="text/css" rel="stylesheet" media="all" href="/stylesheets/menus.css?Z" />
+	<link type="text/css" rel="stylesheet" media="all" href="/stylesheets/bankreos.css?Z" />
+	<link type="text/css" rel="stylesheet" media="all" href="/stylesheets/pagination.css?Z" />
+	<script type="text/javascript" src="/javascripts/jquery.js?Z"></script>
+	<script type="text/javascript" src="/javascripts/superfish.js?Z"></script>
+	<script type="text/javascript" src="/javascripts/jquery.bgiframe.min.js?Z"></script>
+	<script type="text/javascript" src="/javascripts/jquery.hoverIntent.minified.js?Z"></script>
+	<script type="text/javascript" src="/javascripts/nice_menus.js?Z"></script>
+	<script type="text/javascript" src="/javascripts/on_the_spot.js?Z"></script>
+	<%= yield :head %>
+  </head>
+  <body>
+  	<div id='header'>
+ 		<%= render :partial => "widgets/header" %>
+		<div style="clear:both;"></div>
+
+  	</div>
+	<%= render :partial => "widgets/mainnav" %>
+		
+	<div id="wrap"> 
+		<div id="bannerbg">
+			<div id="bannerleft"><img border="0" src="/images/us-map.gif"></div>
+			<div id="bannerright"><img width="340" height="256" src="/images/top_add.png"></div>
+			<div id="bannerbottombox"> 
+				<div id="boxleft"><%= render :partial => "widgets/homesearchform" %></div>		
+				<div id="boxright">
+					<div id="botton1" style="margin-bottom:2px;"><a href="/users/sign_up"><img border="0" src="/images/registre_btn.png"></a></div>
+					<div id="botton2"><a href="/users/sign_in"><img border="0" src="/images/signin_btn.png"></a></div>
+				</div>
+			</div>
+		</div>
+		<div id="centerCol">
+		
+			<%#= render :partial => "widgets/featured_reos" %>
+			<div style="clear:both;"></div>
+			
+			<div id="container">
+		      	<p class="notice"><%= notice %></p>
+				<p class="alert"><%= alert %></p>
+		
+				<div id='main_content'>
+			     	<%= yield %>
+				</div>
+		    </div>
+		 </div>
+		   
+		<div id='rightCol'>
+			
+			<%= render :partial => "widgets/meetbankreoexpert" %>
+			
+			<div style="clear:both;"></div>	
+			
+			<%= render :partial => "widgets/mybankreos" %>
+				
+	      	
+	      	<div style="clear:both;"></div>	
+	      	
+	       	<%= render :partial => "widgets/searchandalerts" %>
+	       	
+	       	<%= render :partial => "widgets/rightadbox1" %>
+	       	
+	       	<%= render :partial => "widgets/rightadbox2" %>	   
+			   
+		</div>
+							   
+		<div style="clear:both;"></div>
+		<%= yield :scripts %>
+	</div>
+</body>
+</html>
