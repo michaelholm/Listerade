@@ -5,4 +5,4 @@
 //
 //= require jquery.jeditable.mini.js
 //= require jquery.jeditable.checkbox.js
-//= require on_the_spot_code
+//# require on_the_spot_code

@@ -32,20 +32,24 @@ class FindController < ApplicationController
 
 
   	parser = AddressParser.new
-  	if is_number?(params[:address]) then 
-  		# zip code
-	  	address_hash = parser.zip.parse(params[:address])
-	elsif params[:address].length == 2 then
-		# state only
-		params[:address] = params[:address].strip.upcase
-		address_hash = parser.state.parse(params[:address])
-	else
-		# city, state, zip
-		begin address_hash = parser.csz.parse(params[:address])
-			rescue
-			# city
-		  	address_hash = parser.city1.parse(params[:address]) unless params[:address].nil?
-		end 
+  	address_hash = {}
+  	
+  	unless params[:address].nil?
+	  	if is_number?(params[:address]) then 
+	  		# zip code
+		  	address_hash = parser.zip.parse(params[:address])
+		elsif params[:address].length == 2 then
+			# state only
+			params[:address] = params[:address].strip.upcase
+			address_hash = parser.state.parse(params[:address])
+		else
+			# city, state, zip
+			begin address_hash = parser.csz.parse(params[:address])
+				rescue
+				# city
+			  	address_hash = parser.city1.parse(params[:address]) unless params[:address].nil?
+			end 
+		end
 	end
 	
 	# new hash for search keys
@@ -82,6 +86,9 @@ class FindController < ApplicationController
   # Find by Listing ID
   def find_by_ln
  	@listing = Listing.where(:LN => params[:ln].to_i).first
+ 	
+ 	@gmaps = @listing.to_gmaps4rails
+ 	puts "GMAPS JSON: #{@json}"
  	
  	render :template => 'listings/show'
   end

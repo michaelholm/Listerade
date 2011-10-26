@@ -5,7 +5,7 @@
 				<label for="address" class="optional">Search Property</label>
 			</dt>
 			<dd id="address-element">
-				<input type="text" name="address" id="address" value="Chicago" onfocus="javascript:if(this.value=='Enter a location,address,city and state or zip')this.value=''"><br />
+				<input type="text" name="address" id="address" value="<%= params[:address].nil? ? params[:address] : "Chicago" %>" onfocus="javascript:if(this.value=='Enter a location,address,city and state or zip')this.value=''"><br />
 				<div id='search-tips'>e.g. "chicago, il", "60613", "San Francisco, CA"</div>
 			</dd>
 			<dd id="property_type-element">

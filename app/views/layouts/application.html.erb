@@ -13,7 +13,8 @@
 	<script type="text/javascript" src="/javascripts/jquery.bgiframe.min.js?Z"></script>
 	<script type="text/javascript" src="/javascripts/jquery.hoverIntent.minified.js?Z"></script>
 	<script type="text/javascript" src="/javascripts/nice_menus.js?Z"></script>
-	<%= javascript_include_tag :on_the_spot %>
+	<script type="text/javascript" src="/javascripts/on_the_spot.js?Z"></script>
+	<%= yield :head %>
   </head>
   <body>
   	<div id='header'>
@@ -49,27 +50,9 @@
 				</div>
 		    </div>
 		 </div>
-		   
-		<div id='rightCol'>
-			
-			<%= render :partial => "widgets/meetbankreoexpert" %>
-			
-			<div style="clear:both;"></div>	
-			
-			<%= render :partial => "widgets/mybankreos" %>
-				
-	      	
-	      	<div style="clear:both;"></div>	
-	      	
-	       	<%= render :partial => "widgets/searchandalerts" %>
-	       	
-	       	<%= render :partial => "widgets/rightadbox1" %>
-	       	
-	       	<%= render :partial => "widgets/rightadbox2" %>	   
-			   
-		</div>
-							   
+		   							   
 		<div style="clear:both;"></div>
+		<%= yield :scripts %>
 	</div>
 </body>
 </html>

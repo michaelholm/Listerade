@@ -5,7 +5,11 @@
 		<div id="topright">
 			<div id="toptoolbar">
 				<div id="smallbox"><img src="/images/signin_icon.png"></div>
+				<% if user_signed_in? then %>
+				<div id="smallbox"><a class="signin" href="/users/edit">Account</a></div>
+				<% else %>
 				<div id="smallbox"><a class="signin" href="/users/sign_in">Sign-In</a></div>
+				<% end %>
 				<fieldset id="signin_menu" style="display: none;">
 					<form id="login_form" method="post" name="login_form">
 				</fieldset>

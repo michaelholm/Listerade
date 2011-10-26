@@ -1,7 +1,7 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true }) do |f| %>
+  <%#= devise_error_messages! %>
 
   <p><%= f.label :email %><br />
   <%= f.text_field :email %></p>
@@ -21,7 +21,26 @@
   <p><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
   <%= f.password_field :current_password %></p>
 
+  <p><%= f.label :photo %><br />
+    <%= f.file_field :photo %></p>
+  
+  <p><%= f.label :addr %><br />
+    <%= f.text_field :addr %></p>
+  
+  <p><%= f.label :addr2 %><br />
+    <%= f.text_field :addr2 %></p>
+  
+  <p><%= f.label :city %><br />
+    <%= f.text_field :city %></p>
+  
+  <p><%= f.label :state %><br />
+    <%= f.text_field :state %></p>
+  
+  <p><%= f.label :zip %><br />
+    <%= f.text_field :zip %></p>
+  
   <p><%= f.submit "Update" %></p>
+
 <% end %>
 
 <h3>Cancel my account</h3>

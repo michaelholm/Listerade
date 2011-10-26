@@ -1955,9 +1955,13 @@ div.search-result-item {
 	padding: 4px;
 	border: 1px solid #000;
 	background-color: #efefef;
-	margin: 4px 0;
+	margin: 4px 0 4px 10px;
 	clear:right;
+	height: 230px;
+	width: 420px;
 }
+
+.pagination { margin: 5px 0 0 10px; }
 	
 	
 div#listingImg { float:right; margin: 5px 5px 0 0; }

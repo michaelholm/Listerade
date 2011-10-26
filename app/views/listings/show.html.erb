@@ -1,6 +1,6 @@
 
-<div class='search-result-item'>
-	<div id='listingImg'><img src="http://placehold.it/220x180&text=<%= @listing.LN %>" /></div>
+<div class='listing-item'>
+	<div id='listingImg'><%= gmaps4rails(@gmaps) %></div>
 	<h2>Listing ID: <%= @listing.LN %></h2>
 	
 	<h3>Listing Price: <%= number_to_currency(@listing.LP, :precision => 0) %></h3>

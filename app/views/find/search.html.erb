@@ -1,19 +1,56 @@
-<h1>Seach Results</h1>
-<h2>for "<%=params[:address]%>" finding a total of <%= @listings.total_entries %> results</h2>
-<%= will_paginate(@listings, :params => {:address => params['address'] }) %>
-<% @listings.each do |listing| %>
-	<div class='search-result-item'>
-		<h2>Listing ID: <a href='/listing/<%= listing.LN %>'><%= listing.LN %></a></h2>
-		<p><strong><%= "#{listing.HSN} #{listing.CP} #{listing.STR} #{listing.STREETSUFFIX}" %><br /><%= "#{listing.CIT} #{listing.STATE} #{listing.ZP}" %></strong></p>
-		<p><span class='listingLabel'>Bedrooms</span>:  <%= listing.BR %></p>
-		<p><span class='listingLabel'>Bathrooms</span>:  <%= listing.BTH %></p>
-		<p><span class='listingLabel'>Approx. SQ Footage</span>: <%= listing.ASF %></p>
-		<p>
-		<span class='listingLabel'>Description</span>:<br />
-		<%= listing.RE1 + listing.RE2 + listing.RE3 %>
-	</p>
-	</div>
-<% end %>
-<%= will_paginate(@listings, :params => { :address => params['address'] }) %>
-<div class='clear'></div>
-<%= render :partial => "widgets/topreomarkets" %>
+<div id="search_results_main" class="floatleft">
+	<div id="search_results_main_content" class="floatleft">
+			
+		<%= render :partial => 'refinesearch' %>
+			
+		<div id="SearchRecords" class="floatleft">
+			<div id="mid_panel">
+				<div id="midbox_up">
+					<div id="midbox_up1" style="margin-left:20px; margin-top:10px;">
+						sort by:
+						<select id="select" class="advance_size" name="select">
+							<option value="">Most Recent</option>
+						</select>
+						<input type="checkbox" value="" name="show" />
+						<span class="bodytext12">Only show listings with images</span>
+					</div>
+				</div>
+				<div id="midbox_mid">			
+					<!-- h1>Seach Results</h1 -->
+					<!-- h2>for "<%#=params[:address]%>" finding a total of <%#= @listings.total_entries %> results</h2 -->
+					
+					<%= will_paginate(@listings, :params => {:address => params['address'] }) %>
+					
+					<% @listings.each do |listing| %>
+						<div class='search-result-item'>
+							<h2>Listing ID: <a href='/listing/<%= listing.LN %>'><%= listing.LN %></a></h2>
+							<p><strong><%= "#{listing.HSN} #{listing.CP} #{listing.STR} #{listing.STREETSUFFIX}" %><br /><%= "#{listing.CIT} #{listing.STATE} #{listing.ZP}" %></strong></p>
+							<p><span class='listingLabel'>Bedrooms</span>:  <%= listing.BR %></p>
+							<p><span class='listingLabel'>Bathrooms</span>:  <%= listing.BTH %></p>
+							<p><span class='listingLabel'>Approx. SQ Footage</span>: <%= listing.ASF %></p>
+							<p>
+								<span class='listingLabel'>Description</span>:<br />
+								<%= listing.RE1 + listing.RE2 + listing.RE3 %>
+							</p>
+						</div>
+					<% end %>
+					
+					<%= will_paginate(@listings, :params => { :address => params['address'] }) %>
+					
+					<div class='clear'></div>
+					
+					<%= render :partial => "widgets/topreomarkets" %>
+				
+				</div>
+					<div id="midbox_bottom"></div>
+				</div>
+				
+			</div>
+		
+		<%= render :partial => 'rightcol' %>
+		
+		</div>
+		
+		
+	</div>	
+</div>

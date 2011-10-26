@@ -2,8 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
 
-  USER_NAME, PASSWORD = "breos", "breos"
-  before_filter :authenticate_testing
+  #USER_NAME, PASSWORD = "breos", "breos"
+  #before_filter :authenticate_testing
   
   def authenticate_testing
    if Rails.env.development?

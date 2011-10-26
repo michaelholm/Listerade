@@ -12,6 +12,10 @@ gem 'will_paginate'
 gem 'devise', '1.1.3'
 gem 'devise-mongo_mapper', :git => 'git://github.com/collectiveidea/devise-mongo_mapper'
 
+gem "mm-attach-it", "~> 0.1.5"
+
+gem 'gmaps4rails'
+
 gem "on_the_spot"
 
 ## Bundle edge rails:
