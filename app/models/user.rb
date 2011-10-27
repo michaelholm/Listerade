@@ -7,9 +7,6 @@ class User
   has_attachment :photo, {  
   			:styles => { :small => '100x100>', :medium => '200x200>' } 
   		}
-  
-  
-  has_one :profile
 
   devise :database_authenticatable, :confirmable, :lockable, 
          :recoverable, :rememberable, :registerable, :trackable, 
