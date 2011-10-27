@@ -49,7 +49,7 @@ class Listing
   key :BLT, String # year built
   key :DIR, String # directions to property
   key :BR, Integer # num bedrooms
-  key :BTH, String # num baths, in rets format i.e., 2.1
+  key :BTH, Float # num baths, in rets format i.e., 2.1
   key :RMS, Integer # num rooms
   
   key :longitude, Float
