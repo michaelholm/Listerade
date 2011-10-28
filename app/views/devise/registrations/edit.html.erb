@@ -1,47 +1,60 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div id="stylized" class="register-form">
+	<h1>Edit Your Member Account</h1>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true }) do |f| %>
-  <%#= devise_error_messages! %>
+	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true }) do |f| %>
+	  <%#= devise_error_messages! %>
+	
+	  <label>Email
+  	  <span class="small">Enter your email address</span></label>
+	  <%= f.text_field :email %>
+	
+	  <label>First Name
+	  <span class="small">Enter your first name</span></label>
+	  <%= f.text_field :first_name %>
+	
+	  <label>Last Name
+	  <span class="small">Enter your last name</span></label>
+	  <%= f.text_field :last_name %>
+	
+	  <label>Password
+	  <span class="small">Enter to change your password<br /></span></label>
+	  <%= f.password_field :password %>
+	
+	  <label>Password
+	  <span class="small">Confirm if changing your password</span></label>
+	  <%= f.password_field :password_confirmation %>
+	
+	  <label>Current Password
+	  <span class="small">To save your changes</span></label>
+	  <%= f.password_field :current_password %>
 
-  <p><%= f.label :email %><br />
-  <%= f.text_field :email %></p>
+	  <label>Address
+	  <span class="small">Enter your address</span></label>
+	  <%= f.text_field :addr %>
+	  
+	  <label>Address 2
+	  <span class="small">Enter your address (line 2)</span></label>
+	  <%= f.text_field :addr2 %>
+	  
+	  <label>City
+	  <span class="small">Enter your city</span></label>
+	  <%= f.text_field :city %>
+	  
+	  <label>State
+	  <span class="small">Enter your state (two letter)</span></label>
+	  <%= f.text_field :state %>
+	  
+	  <label>Zip code
+	  <span class="small">Enter your zip code (5 digit)</span></label>
+	  <%= f.text_field :zip %>
+	  
+	  <button type="submit">Sign-up</button>
+  	  <div class="spacer"></div>
+	
+	<% end %>
 
-  <p><%= f.label :first_name %><br />
-  <%= f.text_field :first_name %></p>
+	<h3>Cancel my account</h3>
 
-  <p><%= f.label :last_name %><br />
-  <%= f.text_field :last_name %></p>
-
-  <p><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password %></p>
-
-  <p><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></p>
-
-  <p><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></p>
-  
-  <p><%= f.label :addr %><br />
-    <%= f.text_field :addr %></p>
-  
-  <p><%= f.label :addr2 %><br />
-    <%= f.text_field :addr2 %></p>
-  
-  <p><%= f.label :city %><br />
-    <%= f.text_field :city %></p>
-  
-  <p><%= f.label :state %><br />
-    <%= f.text_field :state %></p>
-  
-  <p><%= f.label :zip %><br />
-    <%= f.text_field :zip %></p>
-  
-  <p><%= f.submit "Update" %></p>
-
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+	<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
 
 <%= link_to "Back", :back %>
