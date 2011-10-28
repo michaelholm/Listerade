@@ -4,9 +4,9 @@ class User
   plugin MongoMapper::Devise
   plugin AttachIt
   
-  has_attachment :photo, {  
-  			:styles => { :small => '100x100>', :medium => '200x200>' } 
-  		}
+#   has_attachment :photo, {  
+#   			:styles => { :small => '100x100>', :medium => '200x200>' } 
+#   		}
 
   devise :database_authenticatable, :confirmable, :lockable, 
          :recoverable, :rememberable, :registerable, :trackable, 
@@ -40,6 +40,6 @@ class User
   timestamps!
 
   # Validations.
-  validates_presence_of :first_name, :last_name
+  #validates_presence_of :first_name, :last_name
   
 end
