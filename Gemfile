@@ -18,6 +18,8 @@ gem 'gmaps4rails'
 
 gem "on_the_spot"
 
+gem 'exceptional'
+
 ## Bundle edge rails:
 # gem "rails", :git => "git://github.com/rails/rails.git"
 
