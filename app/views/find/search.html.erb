@@ -17,7 +17,8 @@
 				</div>
 				<div id="midbox_mid">			
 					<!-- h1>Seach Results</h1 -->
-					<!-- h2>for "<%#=params[:address]%>" finding a total of <%#= @listings.total_entries %> results</h2 -->
+					<br />
+					<span style='clear:left;padding:0 0 4px 12px;'>Search for "<%=params[:address]%>" finding a total of <%= @listings.total_entries %> results</span>
 					
 					<%= will_paginate(@listings, :params => {:address => params['address'] }) %>
 					

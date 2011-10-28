@@ -5,29 +5,14 @@
 	</div>
 	<div id="advanced_mid">
 		<div class="mid1">
-			<div id="Advance_serch">
-				<form enctype="application/x-www-form-urlencoded" method="post" action="/trunk/node/53/">
-					<dl class="zend_form">
+			<div id="Advance_search">
+				<form enctype="application/x-www-form-urlencoded" method="get" action="" name='advsearchform'>
+					<dl class="advsearch_form">
 						<dt id="bathrooms-label"><label for="bathrooms" class="optional">BATHS</label></dt>
 						<dd id="bathrooms-element">
-							<select name="bathrooms" id="bathrooms">
-							    <option value="" label="Any">Any</option>
-							    <option value="1" label="1">1</option>
-							    <option value="1.1" label="1 1/2">1 1/2</option>
-							    <option value="2" label="2">2</option>
-							    <option value="2.1" label="2 1/2">2 1/2</option>
-							    <option value="3" label="3">3</option>
-							    <option value="3.1" label="3 1/2">3 1/2</option>
-							    <option value="4" label="4">4</option>
-							    <option value="4.1" label="4 1/2">4 1/2</option>
-							    <option value="5" label="5">5</option>
-							    <option value="5.1" label="5 1/2">5 1/2</option>
-							    <option value="6" label="6">6</option>
-							    <option value="6.1" label="6 1/2">6 1/2</option>
-							    <option value="7" label="7 or more">7 or more</option>
-							</select>
+							<%= select_tag "bathrooms", options_for_select([['1 or more', 1], ['2 or more', 2], ['3 or more', 3], ['4 or more', 4], ['5 or more', 5], ['6 or more', 6], ['7 or more', 7]]), :selected => params[:pid] %>
 						</dd>
-						<dt id="ltype-label"><label for="ltype" class="optional">YOUR SEARCH</label></dt>
+						<dt id="ltype-label"><label for="ltype" class="optional">Property Type</label></dt>
 						<dd id="ltype-element">
 							<select name="ltype" id="ltype">
 							    <option value="" label="-- select --">-- select --</option>
@@ -186,7 +171,7 @@
 			<div class="mid2"></div>
 			<div style="padding-top:10px;">
 				<div class="orangenewtext" style="padding-left:10px; padding-bottom:10px;">Population</div>
-				<div class="mid2" style="padding-left:10px;border:0px;"><img width="156" src="/peopel.png"></div>
+				<div class="mid2" style="padding-left:10px;border:0px;"><img width="156" src="/images/peopel.png"></div>
 				<div class="mid2" style="padding-left:10px; border:0px; padding-top:10px;">The Capture Preview window is an easy way to preview a capture before it is saved to a file or inserted</div>
 				<div class="mid2" style="padding-left:10px;border:0px; padding-top:10px;"><img width="86" height="24" src="/images/readmore_btn.png"></div>
 			</div>

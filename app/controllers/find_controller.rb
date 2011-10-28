@@ -55,14 +55,33 @@ class FindController < ApplicationController
 	# new hash for search keys
 	skeys = {}
 	
-	if address_hash[:city] then skeys["CIT"] = /#{address_hash[:city]}/i end
-	if address_hash[:city1] then skeys["CIT"] = /#{address_hash[:city1]}/i end
-  	if address_hash[:state] then skeys["STATE"] = "#{address_hash[:state]}" end
-  	if address_hash[:zip] then
-  		zip = address_hash[:zip]
-  		skeys["ZP"] = zip.to_i
+	if address_hash[:city] then 
+		skeys["CIT"] = /#{address_hash[:city]}/i
+		params['city'] = CGI::escape(address_hash[:city])
+	end
+	if address_hash[:city1] then 
+		skeys["CIT"] = /#{address_hash[:city1]}/i
+		params['city'] = CGI::escape(address_hash[:city])
+	end
+  	if address_hash[:state] then 
+  		skeys["STATE"] = "#{address_hash[:state]}" 
+  		params['state'] = address_hash[:state]
   	end
-  	  	
+  	if address_hash[:zip] then 
+  		skeys["ZP"] = address_hash[:zip].to_i 
+  		params['zip'] = CGI::escape(address_hash[:zip])
+  	end
+  	
+  	# TODO: currently does only equal match, need to add greater than and less than capability
+  	if(params.has_key?('baths') ) then
+  		skeys["BTH"] = "#{params[:baths]}"
+  	end
+  	
+  	if(params.has_key?('beds') ) then
+  		skeys["BR"] = params[:beds].to_i
+  	end
+  	# END TODO
+  	
   	#skeys = skeys[0..-1].to_s
   	#  skeys.symbolize_keys.inspect[1..-2]
   	@listings = Listing.where( skeys.to_mongo ).paginate({
@@ -70,6 +89,9 @@ class FindController < ApplicationController
 		  :per_page => 15, 
 		  :page     => params[:page],
 		})
+  	
+  	#params.delete :address
+  	params.delete :homepage_submit
   	
   	render :template => 'find/search', :collection => @listings
   	  	
