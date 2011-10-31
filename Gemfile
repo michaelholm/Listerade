@@ -2,7 +2,7 @@ source "http://rubygems.org"
 source 'http://gemcutter.org'
 
 gem "rails", "3.0.3"
-gem "bson", "~>1.4.1"
+gem "bson" #, "~>1.4.1"
 gem 'bson_ext'
 gem "mongo_mapper", :require => "mongo_mapper"
 gem "parslet"
