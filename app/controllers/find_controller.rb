@@ -89,7 +89,7 @@ class FindController < ApplicationController
  	@listing = Listing.where(:LN => params[:ln]).first
  	
  	@gmaps = @listing.to_gmaps4rails unless @listing.nil?
- 	puts "GMAPS JSON: #{@json}"
+ 	puts "GMAPS JSON: #{@gmaps}"
  	
  	if @listing.nil? then
 	 	@listings = Listing.paginate({
