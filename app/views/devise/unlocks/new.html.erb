@@ -1,12 +1,15 @@
-<h2>Resend unlock instructions</h2>
-
-<%= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <p><%= f.label :email %><br />
-  <%= f.text_field :email %></p>
-
-  <p><%= f.submit "Resend unlock instructions" %></p>
-<% end %>
-
+<div id="stylized" class="register-form">
+	<h2>Resend unlock instructions</h2>
+	<p>Enter your email address and click 'Send' to receive an email message with unlock instructions.</p>
+	
+	<%= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f| %>
+	  <%= devise_error_messages! %>
+	
+	  <label>Email
+	  <span class="small">Enter your email</span></label> <%= f.text_field :email %>
+	
+	  <button type="submit">Send</button>
+	  <div class="spacer"></div>
+	<% end %>
+</div>
 <%= render :partial => "devise/shared/links" %>
