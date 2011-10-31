@@ -8,28 +8,6 @@ class FindController < ApplicationController
 
   # Search for matching properties
   def search
-  	# @criteria = params.to_json
-  	# here we'll want to execute a find
-  	# {"homepage_submit":"","address":"chicago","action":"search","property_type":"Residential","controller":"find"}
-  	
-  	# Handy tip to find a random listing item: Listing.all(:limit => 1, :skip => rand(Listing.count())).fields(:LN, :LP, :ZP)
-  	# Cities in sample data:
-	# 	  	"EVANSTON",
-	# 		"SKOKIE",
-	# 		"Chicago",
-	# 		"CHICAGO",
-	# 		"HIGHLAND PARK",
-	# 		"Evanston",
-	# 		"WILMETTE",
-	# 		"PROSPECT HEIGHTS",
-	# 		"BUFFALO GROVE",
-	# 		"MORTON GROVE",
-	# 		"NORTHFIELD",
-	# 		"GLENVIEW",
-	# 		"LINCOLNWOOD",
-	# 		"DES PLAINES",
-	# 		"FLOSSMOOR",
-
 
   	parser = AddressParser.new
   	address_hash = {}
@@ -68,8 +46,9 @@ class FindController < ApplicationController
   		params['state'] = address_hash[:state]
   	end
   	if address_hash[:zip] then 
-  		skeys["ZP"] = address_hash[:zip].to_i 
-  		params['zip'] = CGI::escape(address_hash[:zip])
+  		skeys["ZP"] = address_hash[:zip].to_s 
+  		#params['zip'] = CGI::escape(address_hash[:zip])
+  		params['zip'] = address_hash[:zip]
   	end
   	
   	# TODO: currently does only equal match, need to add greater than and less than capability
@@ -78,7 +57,7 @@ class FindController < ApplicationController
   	end
   	
   	if(params.has_key?('beds') ) then
-  		skeys["BR"] = params[:beds].to_i
+  		skeys["BR"] = params[:beds]
   	end
   	# END TODO
   	
@@ -107,12 +86,21 @@ class FindController < ApplicationController
   
   # Find by Listing ID
   def find_by_ln
- 	@listing = Listing.where(:LN => params[:ln].to_i).first
+ 	@listing = Listing.where(:LN => params[:ln]).first
  	
- 	@gmaps = @listing.to_gmaps4rails
+ 	@gmaps = @listing.to_gmaps4rails unless @listing.nil?
  	puts "GMAPS JSON: #{@json}"
  	
- 	render :template => 'listings/show'
-  end
+ 	if @listing.nil? then
+	 	@listings = Listing.paginate({
+			  :sort => :LP.desc,
+			  :per_page => 15, 
+			  :page     => params[:page],
+			})
+ 		render :template => 'home/index'
+ 	else
+	 	render :template => 'listings/show'
+   	end
+   end
 
 end

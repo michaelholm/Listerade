@@ -1,14 +1,7 @@
 
 <div class='listing-item'>
-	<!-- div id='listingImg'><%#= gmaps4rails(@gmaps) %></div -->
 	<div id='listingImg'>
-		<%= gmaps("markers" => { "data" => @gmaps}, 
-				  "map_options" => { 
-						"type" => "ROADMAP", 
-						"center_latitude" => 0, "center_longitude" => 0, 
-						"zoom" => 16, 
-						"auto_zoom" => false 
-					} ) %>
+		<%= gmaps("markers" => { "data" => @gmaps}, "map_options" => { "type" => "ROADMAP", "zoom" => 16, "auto_zoom" => false } ) %>
 	</div>
 	<h2>Listing ID: <%= @listing.LN %></h2>
 	
@@ -19,7 +12,7 @@
 	<p><span class='listingLabel'>Approx. SQ Footage</span>: <%= @listing.ASF %></p>
 	<p>
 		<span class='listingLabel'>Description</span>:<br />
-		<%= @listing.RE1 + @listing.RE2 + @listing.RE3 %>
+		<%= @listing.REMARKS %>
 	</p>
 </div>
 

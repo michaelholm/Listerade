@@ -20,6 +20,9 @@ gem "on_the_spot"
 
 gem 'exceptional'
 
+# RETS
+gem "rets4r", ">=0.8.5"
+
 ## Bundle edge rails:
 # gem "rails", :git => "git://github.com/rails/rails.git"
 

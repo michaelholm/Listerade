@@ -50,6 +50,8 @@ Mongo::Application.routes.draw do |map|
   post '/find', :controller => 'find', :action => 'search'
   get '/find(/:page)', :controller => 'find', :action => 'search'
   get '/listing/:ln', :controller => 'find', :action => 'find_by_ln'  # listing number
+  get '/listing/new', :controller => 'listings', :action => 'new'
+  
   
   # Default route to home/index
   root :to => "home#index"

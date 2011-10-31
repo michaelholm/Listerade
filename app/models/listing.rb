@@ -13,34 +13,26 @@ class Listing
 
   
   # listing info
-  key :LN, Integer #listing number
+  key :LN, String #listing number
   key :TYP, String # property type
   key :LO, String # listing office
   key :LAG, String # listing agent
   key :OFFICE_FORM_NAME, String
   key :LP, Integer # listing price
+
   
   # remarks
-  key :RE1, String
-  key :RE2, String
-  key :RE3, String
-  key :RE4, String
-  key :RE5, String
-  key :RE6, String
-  key :RE7, String
-  key :RE8, String
-  key :RE9, String
-  key :RE10, String
+  key :REMARKS, String
   
-  
-  # property location info
+  # property info
   key :HSN, String # house number
   key :CP, String # compass point
   key :STR, String # street
   key :STREETSUFFIX, String
-  key :CIT, String
+  key :CIT, String # city
   key :STATE, String
-  key :ZP, Integer
+  key :ZP, String # zip
+  key :CNY, String # county
   
   key :CONCATADDRESS, String
   
@@ -60,7 +52,7 @@ class Listing
   timestamps!
   
   # Validations.
-  #validates_presence_of :listing_id
+  #validates_presence_of :LN
   
   def listing_price
   	 self.LP
