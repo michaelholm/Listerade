@@ -1,6 +1,15 @@
 
 <div class='listing-item'>
-	<div id='listingImg'><%= gmaps4rails(@gmaps) %></div>
+	<!-- div id='listingImg'><%#= gmaps4rails(@gmaps) %></div -->
+	<div id='listingImg'>
+		<%= gmaps("markers" => { "data" => @gmaps}, 
+				  "map_options" => { 
+						"type" => "ROADMAP", 
+						"center_latitude" => 0, "center_longitude" => 0, 
+						"zoom" => 16, 
+						"auto_zoom" => false 
+					} ) %>
+	</div>
 	<h2>Listing ID: <%= @listing.LN %></h2>
 	
 	<h3>Listing Price: <%= number_to_currency(@listing.LP, :precision => 0) %></h3>
@@ -12,7 +21,6 @@
 		<span class='listingLabel'>Description</span>:<br />
 		<%= @listing.RE1 + @listing.RE2 + @listing.RE3 %>
 	</p>
-	
 </div>
 
 <div class='clear'></div>
