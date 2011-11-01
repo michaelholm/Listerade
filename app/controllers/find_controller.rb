@@ -35,11 +35,11 @@ class FindController < ApplicationController
 	
 	if address_hash[:city] then 
 		skeys["CIT"] = /#{address_hash[:city]}/i
-		params['city'] = CGI::escape(address_hash[:city])
+		params['city'] = address_hash[:city]
 	end
 	if address_hash[:city1] then 
 		skeys["CIT"] = /#{address_hash[:city1]}/i
-		params['city'] = CGI::escape(address_hash[:city])
+		params['city'] = address_hash[:city]
 	end
   	if address_hash[:state] then 
   		skeys["STATE"] = "#{address_hash[:state]}" 
@@ -87,7 +87,7 @@ class FindController < ApplicationController
   # Find by Listing ID
   def find_by_ln
  	@listing = Listing.where(:LN => params[:ln]).first
- 	
+ 	puts @listing.inspect
  	@gmaps = @listing.to_gmaps4rails unless @listing.nil?
  	puts "GMAPS JSON: #{@gmaps}"
  	
