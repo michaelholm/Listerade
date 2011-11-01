@@ -1957,7 +1957,7 @@ div.search-result-item {
 	background-color: #efefef;
 	margin: 4px 0 4px 10px;
 	clear:right;
-	height: 230px;
+	/*height: 230px;*/
 	width: 420px;
 }
 
