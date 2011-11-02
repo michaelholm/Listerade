@@ -105,7 +105,7 @@ class FindController < ApplicationController
 			 	end
 			 when 'ZP'
 			 	if value != "" then
-			 		query.merge!({ 'ZP'.to_sym.lte => value })
+			 		query.merge!({ 'ZP'.to_sym => value })
 			 	end
 			 when 'CIT', 'STATE', 'ZP'
 			   query.merge!({ key.to_sym => value })

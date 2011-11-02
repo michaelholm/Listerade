@@ -8,8 +8,9 @@
 			<div id="Advance_search">
 				<form enctype="application/x-www-form-urlencoded" method="get" action="" name='advsearchform'>
 					<dl class="advsearch_form">
-						<dt id="bathrooms-label"><label for="bathrooms" class="optional">BATHS</label></dt>
+
 						<dd id="bathrooms-element">
+						<label for="bathrooms" class="optional">BATHS</label><br />
 							<%= select_tag "bathrooms", options_for_select([['1 or more', 1], ['2 or more', 2], ['3 or more', 3], ['4 or more', 4], ['5 or more', 5], ['6 or more', 6], ['7 or more', 7]], :selected => params['baths']) %>
 						</dd>
 						<dt id="bedrooms-label"><label for="bedrooms" class="optional">BEDS</label></dt>
@@ -17,14 +18,14 @@
 							<%= select_tag "bedrooms", options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6], ['7', 7]], :selected => params['beds']) %>
 							
 						</dd>
-						<dt id="minyear-label"><label for="minyear" class="optional">Min Year</label></dt>
+						<dt id="minyear-label"><label for="minyear" class="optional">MIN YEAR</label></dt>
 						<dd id="minyear-element">
 							<input type="text" name="minyear" id="minyear" value="<%= params.has_key?('minyear') ? params[:minyear] : "" %>"></dd>
-						<dt id="maxyear-label"><label for="maxyear" class="optional">Max Year</label></dt>
+						<dt id="maxyear-label"><label for="maxyear" class="optional">MAX YEAR</label></dt>
 						<dd id="maxyear-element">
 							<input type="text" name="maxyear" id="maxyear" value="<%= params.has_key?('maxyear') ? params[:maxyear] : "" %>">
 						</dd>
-						<dt id="bedrooms-label"><label for="bedrooms" class="optional">Price</label></dt>
+						<dt id="bedrooms-label"><label for="bedrooms" class="optional">PRICE</label></dt>
 						<dd id="bedrooms-element">
 							<%= select_tag "price_low", options_for_select([['$10K',10000], ['$20K',20000], ['$30K',30000], ['$50K',50000], ['$100K',100000], 
 								['$130K',130000], ['$150K',150000], ['$200K',200000], ['$250K',250000], ['$300K',300000],
@@ -48,7 +49,7 @@
 							
 						</dd>
 
-						<dt id="ltype-label"><label for="ltype" class="optional">Property Type</label></dt>
+						<dt id="ltype-label"><label for="ltype" class="optional">PROPERTY TYPE</label></dt>
 						<dd id="ltype-element">
 							<select name="ltype" id="ltype">
 							    <option value="" label="-- select --">-- select --</option>
