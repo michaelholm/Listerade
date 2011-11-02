@@ -2,10 +2,10 @@
 	<form enctype="application/x-www-form-urlencoded" method="get" action="/find">
 		<dl class="zend_form">
 			<dt id="address-label">
-				<label for="address" class="optional">Search Property</label>
+				<label for="location" class="optional">Search Property</label>
 			</dt>
 			<dd id="address-element">
-				<input type="text" name="address" id="address" value="<%= params[:address].nil? ? params[:address] : "Chicago" %>" onfocus="javascript:if(this.value=='Enter a location,address,city and state or zip')this.value=''"><br />
+				<input type="text" name="location" id="location" value="<%= params.has_key?('location') ? params[:location] : "Chicago, IL" %>" onfocus="javascript:if(this.value=='Enter a city and state or zip')this.value=''"><br />
 				<div id='search-tips'>e.g. "chicago, il", "60613", "San Francisco, CA"</div>
 			</dd>
 			<dd id="property_type-element">
@@ -16,7 +16,8 @@
 			</dd>
 			<dt id="homepage_submit-label">&#160;</dt>
 			<dd id="homepage_submit-element">
-				<input type="submit" name="homepage_submit" id="homepage_submit" value="">
+				<button type="submit" style='float:right;padding:10px 14px;'>Search</button>
+	  			<div class="spacer"></div>
 			</dd>
 		</dl>
 	</form>

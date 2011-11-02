@@ -4,6 +4,8 @@ class Listing
   include MongoMapper::Document
   plugin MongoMapper::Plugins::Timestamps
   
+  #has_many :listing_images, :dependent => :destroy
+  
   # Google maps
   acts_as_gmappable :lat => 'latitude', :lon => 'longitude', :process_geocoding => true,
                       :check_process => :prevent_geocoding,
@@ -38,7 +40,7 @@ class Listing
   
   # property info
   key :ASF, Integer # approx sq footage
-  key :BLT, String # year built
+  key :BLT, Integer # year built
   key :DIR, String # directions to property
   key :BR, Integer # num bedrooms
   key :BTH, Float # num baths, in rets format i.e., 2.1
@@ -75,7 +77,8 @@ class Listing
   def gmaps4rails_address
 	#describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
 	#self.full_address
-    "#{self.HSN} #{self.CP} #{self.STR} #{self.STREETSUFFIX} #{self.CIT} #{self.STATE} #{self.ZP}".squeeze(" ").strip
+	"#{self.HSN} #{self.CP} #{self.STR} #{self.STREETSUFFIX} #{self.CIT} #{self.STATE} #{self.ZP}".squeeze(" ").strip
+    #CGI.escape("#{self.HSN} #{self.CP} #{self.STR} #{self.STREETSUFFIX} #{self.CIT} #{self.STATE} #{self.ZP}".squeeze(" ").strip)
   end
   
   

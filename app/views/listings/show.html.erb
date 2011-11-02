@@ -6,7 +6,7 @@
 	<h2>Listing ID: <%= @listing.LN %></h2>
 	
 	<h3>Listing Price: <%= number_to_currency(@listing.LP, :precision => 0) %></h3>
-	<p><strong><%= "#{@listing.HSN} #{@listing.CP} #{@listing.STR} #{@listing.STREETSUFFIX}" %><br /><%= "#{@listing.CIT} #{@listing.STATE} #{@listing.ZP}" %></strong></p>
+	<p><strong><%= "#{@listing.HSN} #{@listing.CP} #{@listing.STR} #{@listing.STREETSUFFIX}" %><br /><%= "#{@listing.CIT} #{@listing.STATE} #{@listing.ZP}" %></strong><br /><%= @listing.gmaps4rails_address %></p>
 	<p><span class='listingLabel'>Bedrooms</span>:  <%= @listing.BR %></p>
 	<p><span class='listingLabel'>Bathrooms</span>:  <%= @listing.BTH %></p>
 	<p><span class='listingLabel'>Approx. SQ Footage</span>: <%= @listing.ASF %></p>

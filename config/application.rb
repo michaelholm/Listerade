@@ -5,6 +5,8 @@ require "action_mailer/railtie"
 require "active_resource/railtie"
 require "rails/test_unit/railtie"
 
+
+
 # Auto-require default libraries and those for the current Rails environment.
 Bundler.require :default, Rails.env
 

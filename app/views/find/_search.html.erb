@@ -1,5 +1,5 @@
 <h1>Seach Results</h1>
-<h2>Search Term: <%=params[:address]%> with <%= @listings.total_entries %> results</h2>
+<h2>Search Term: <%=params[:location]%> with <%= @listings.total_entries %> results</h2>
 <%= @listings.each do |listing| %>
 	
 	<h2><%= listing.ZP %></h2>

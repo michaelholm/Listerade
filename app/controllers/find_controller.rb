@@ -12,20 +12,20 @@ class FindController < ApplicationController
   	parser = AddressParser.new
   	address_hash = {}
   	
-  	unless params[:address].nil?
-	  	if is_number?(params[:address]) then 
+  	unless params[:location].nil?
+	  	if is_number?(params[:location]) then 
 	  		# zip code
-		  	address_hash = parser.zip.parse(params[:address])
-		elsif params[:address].length == 2 then
+		  	address_hash = parser.zip.parse(params[:location])
+		elsif params[:location].length == 2 then
 			# state only
-			params[:address] = params[:address].strip.upcase
-			address_hash = parser.state.parse(params[:address])
+			params[:location] = params[:location].strip.upcase
+			address_hash = parser.state.parse(params[:location])
 		else
 			# city, state, zip
-			begin address_hash = parser.csz.parse(params[:address])
+			begin address_hash = parser.csz.parse(params[:location])
 				rescue
 				# city
-			  	address_hash = parser.city1.parse(params[:address]) unless params[:address].nil?
+			  	address_hash = parser.city1.parse(params[:location]) unless params[:location].nil?
 			end 
 		end
 	end
@@ -51,26 +51,51 @@ class FindController < ApplicationController
   		params['zip'] = address_hash[:zip]
   	end
   	
-  	# TODO: currently does only equal match, need to add greater than and less than capability
   	if(params.has_key?('baths') ) then
-  		skeys["BTH"] = "#{params[:baths]}"
+  		skeys["BTH"] = "#{params[:baths].to_f}"
   	end
   	
   	if(params.has_key?('beds') ) then
-  		skeys["BR"] = params[:beds]
+  		skeys["BR"] = params[:beds].to_i
   	end
-  	# END TODO
+
+  	if(params.has_key?('minyear') ) then
+  		skeys["BLT-MIN"] = params[:minyear].to_i
+  	end
   	
-  	#skeys = skeys[0..-1].to_s
-  	#  skeys.symbolize_keys.inspect[1..-2]
-  	@listings = Listing.where( skeys.to_mongo ).paginate({
+  	if(params.has_key?('maxyear') ) then
+  		skeys["BLT-MAX"] = params[:minyear].to_i
+  	end
+
+
+
+	
+	query = {}
+
+	skeys.each do |key, value|
+	case key
+	 when 'BTH'
+	   query.merge!({ key.to_sym.gte => value.to_f })
+	 when 'BR'
+	   query.merge!({ key.to_sym.gte => value.to_i })
+	 when 'BLT-MIN'
+	 	if value != '' then
+	 		query.merge!({ 'BLT'.to_sym.gte => value.to_i })
+	 	end
+	 when 'BLT-MAX'
+	 	if value != '' then
+	 		query.merge!({ 'BLT'.to_sym.lte => value.to_i })
+	 	end
+	 when 'CIT', 'STATE', 'ZP'
+	   query.merge!({ key.to_sym => value })
+	 end
+	end
+		
+  	@listings = Listing.where( query ).paginate({
 		  :sort => :LP.desc,
-		  :per_page => 15, 
+		  :per_page => 10, 
 		  :page     => params[:page],
 		})
-  	
-  	#params.delete :address
-  	params.delete :homepage_submit
   	
   	render :template => 'find/search', :collection => @listings
   	  	
@@ -102,5 +127,9 @@ class FindController < ApplicationController
 	 	render :template => 'listings/show'
    	end
    end
+   
+   def serializable_hash(options = {})
+    super({:except => :password}.merge(options))
+  end
 
 end

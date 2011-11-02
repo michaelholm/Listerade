@@ -14,7 +14,16 @@ $(document).ready(function(){
 		window.location = path	
 	});
 	
-	
+	$('input#minyear').change( function() {
+		var path = replaceQueryString(window.location.href,"minyear",$("#minyear").val())
+		window.location = path	
+	});
+
+	$('input#maxyear').change( function() {
+		var path = replaceQueryString(window.location.href,"maxyear",$("#maxyear").val())
+		window.location = path	
+	});
+
 /*
 	$('select#ltype').change( function() {
 		var ltype = $("#ltype option:selected").val();

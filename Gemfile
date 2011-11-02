@@ -20,6 +20,9 @@ gem "on_the_spot"
 
 gem 'exceptional'
 
+gem 'paperclip'
+gem 'aws-s3'
+
 # RETS
 gem "rets4r", ">=0.8.5"
 

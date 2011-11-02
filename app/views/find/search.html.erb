@@ -18,13 +18,14 @@
 				<div id="midbox_mid">			
 					<!-- h1>Seach Results</h1 -->
 					<br />
-					<span style='clear:left;padding:0 0 4px 12px;'>Search for "<%=params[:address]%>" finding a total of <%= @listings.total_entries %> results</span>
+					<span style='clear:left;padding:0 0 4px 12px;'>Search for "<%=params[:location]%>" finding a total of <%= @listings.total_entries %> results</span>
 					
-					<%= will_paginate(@listings, :params => {:address => params['address'] }) %>
+					<%= will_paginate(@listings, :params => {:location => params['location'] }) %>
 					
 					<% @listings.each do |listing| %>
 						<div class='search-result-item'>
 							<h2>Listing ID: <a href='/listing/<%= listing.LN %>'><%= listing.LN %></a></h2>
+							<h3>Listing Price: <%= number_to_currency(listing.LP) %></h3>
 							<p><strong><%= "#{listing.HSN} #{listing.CP} #{listing.STR} #{listing.STREETSUFFIX}" %><br /><%= "#{listing.CIT} #{listing.STATE} #{listing.ZP}" %></strong></p>
 							<p><span class='listingLabel'>Bedrooms</span>:  <%= listing.BR %></p>
 							<p><span class='listingLabel'>Bathrooms</span>:  <%= listing.BTH %></p>
@@ -36,7 +37,7 @@
 						</div>
 					<% end %>
 					
-					<%= will_paginate(@listings, :params => { :address => params['address'] }) %>
+					<%= will_paginate(@listings, :params => { :location => params['location'] }) %>
 					
 					<div class='clear'></div>
 					

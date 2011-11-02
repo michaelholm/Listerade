@@ -1,5 +1,5 @@
 	<h2><%= @listings.total_entries %> Listings</h2>
-	<%= will_paginate(@listings, :params => {:address => params['address'] }) %>
+	<%= will_paginate(@listings, :params => {:location => params['location'] }) %>
 	<% @listings.each do |listing| %>
 		<div class='search-result-item'>
 			<div id='listingImg'><img src="http://placehold.it/220x180&text=<%= listing.LN %>" /></div>
@@ -15,7 +15,7 @@
 
 		</div>
 	<% end %>
-	<%= will_paginate(@listings, :params => { :address => params['address'] }) %>
+	<%= will_paginate(@listings, :params => { :location => params['location'] }) %>
 	
 			
 			
