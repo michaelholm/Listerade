@@ -7,11 +7,8 @@ class Listing
   #has_many :listing_images, :dependent => :destroy
   
   # Google maps
-  acts_as_gmappable :lat => 'latitude', :lon => 'longitude', :process_geocoding => true,
-                      :check_process => :prevent_geocoding,
-                      :address => "gmaps4rails_address", 
-                      :normalized_address => "normalized_address"
-                      #:msg => "Sorry, not even Google could figure out where that is"
+  acts_as_gmappable :lat => 'latitude', :lon => 'longitude', :check_process => :prevent_geocoding,
+                      :address => "gmaps4rails_address", :normalized_address => "normalized_address"
 
   
   # listing info
@@ -50,11 +47,18 @@ class Listing
   key :latitude, Float
   key :normalized_address, String
   key :location, :type => Array, :geo => true, :lat => :latitude, :lng => :longitude
+  
+  key :tags, Array
       
   timestamps!
   
   # Validations.
   #validates_presence_of :LN
+  
+  # scope :by_tag,  lambda { |tags| where(:tags => tag) }
+  def self.by_tag(tag)
+    where(:tags => tag)
+  end
   
   def listing_price
   	 self.LP
@@ -79,6 +83,7 @@ class Listing
 	#self.full_address
 	"#{self.HSN} #{self.CP} #{self.STR} #{self.STREETSUFFIX} #{self.CIT} #{self.STATE} #{self.ZP}".squeeze(" ").strip
     #CGI.escape("#{self.HSN} #{self.CP} #{self.STR} #{self.STREETSUFFIX} #{self.CIT} #{self.STATE} #{self.ZP}".squeeze(" ").strip)
+    #CGI.escape(self.full_address)
   end
   
   

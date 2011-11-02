@@ -24,6 +24,18 @@ $(document).ready(function(){
 		window.location = path	
 	});
 
+
+	$('select#price_low').change( function() {
+		var path = replaceQueryString(window.location.href,"price_low",$("#price_low").val())
+		window.location = path	
+	});
+
+
+	$('select#price_high').change( function() {
+		var path = replaceQueryString(window.location.href,"price_high",$("#price_high").val())
+		window.location = path	
+	});
+
 /*
 	$('select#ltype').change( function() {
 		var ltype = $("#ltype option:selected").val();

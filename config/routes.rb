@@ -48,6 +48,7 @@ Mongo::Application.routes.draw do |map|
   
   # Search/Find
   post '/find', :controller => 'find', :action => 'search'
+  get '/find_by_tag/:tag', :controller => 'find', :action => 'find_by_tag'
   get '/find(/:page)', :controller => 'find', :action => 'search'
   get '/listing/:ln', :controller => 'find', :action => 'find_by_ln'  # listing number
   get '/listing/new', :controller => 'listings', :action => 'new'

@@ -66,29 +66,42 @@ class FindController < ApplicationController
   	if(params.has_key?('maxyear') ) then
   		skeys["BLT-MAX"] = params[:minyear].to_i
   	end
-
-
-
+  	
+  	if(params.has_key?('price_low') ) then
+  		skeys["LP-MIN"] = params[:price_low].to_i
+  	end
+  	
+  	if(params.has_key?('price_high') ) then
+  		skeys["LP-MAX"] = params[:price_high].to_i
+  	end
 	
 	query = {}
 
 	skeys.each do |key, value|
-	case key
-	 when 'BTH'
-	   query.merge!({ key.to_sym.gte => value.to_f })
-	 when 'BR'
-	   query.merge!({ key.to_sym.gte => value.to_i })
-	 when 'BLT-MIN'
-	 	if value != '' then
-	 		query.merge!({ 'BLT'.to_sym.gte => value.to_i })
-	 	end
-	 when 'BLT-MAX'
-	 	if value != '' then
-	 		query.merge!({ 'BLT'.to_sym.lte => value.to_i })
-	 	end
-	 when 'CIT', 'STATE', 'ZP'
-	   query.merge!({ key.to_sym => value })
-	 end
+		case key
+			 when 'BTH'
+			   query.merge!({ key.to_sym.gte => value.to_f })
+			 when 'BR'
+			   query.merge!({ key.to_sym.gte => value.to_i })
+			 when 'BLT-MIN'
+			 	if value.to_i > 0 then
+			 		query.merge!({ 'BLT'.to_sym.gte => value.to_i })
+			 	end
+			 when 'BLT-MAX'
+			 	if value.to_i > 0 then
+			 		query.merge!({ 'BLT'.to_sym.lte => value.to_i })
+			 	end
+			 when 'LP-MIN'
+			 	if value.to_i > 0 then
+			 		query.merge!({ 'LP'.to_sym.gte => value.to_i })
+			 	end
+			 when 'LP-MAX'
+			 	if value.to_i > 0 then
+			 		query.merge!({ 'LP'.to_sym.lte => value.to_i })
+			 	end
+			 when 'CIT', 'STATE', 'ZP'
+			   query.merge!({ key.to_sym => value })
+		 end
 	end
 		
   	@listings = Listing.where( query ).paginate({
@@ -101,11 +114,24 @@ class FindController < ApplicationController
   	  	
   end
   
+  def find_by_tag
+  	@listings = Listing.by_tag( params[:tag] ).paginate({
+		  :sort => :LP.desc,
+		  :per_page => 10, 
+		  :page     => params[:page],
+		})
+
+  	
+  	puts @listings
+  	
+  	render :template => 'find/search', :collection => @listings
+  end
+  
   def find_by_price
   
   	@listings = Listing.where( :LP.gte => params[:from_price], :LP.lte => params[:to_price] )
   	
-  	render :template => 'find/search'
+  	render :template => 'find/search', :collection => @listings
   
   end
   
@@ -113,16 +139,14 @@ class FindController < ApplicationController
   def find_by_ln
  	@listing = Listing.where(:LN => params[:ln]).first
  	puts @listing.inspect
+ 	
+ 	# get gmap for the property location
  	@gmaps = @listing.to_gmaps4rails unless @listing.nil?
  	puts "GMAPS JSON: #{@gmaps}"
  	
  	if @listing.nil? then
-	 	@listings = Listing.paginate({
-			  :sort => :LP.desc,
-			  :per_page => 15, 
-			  :page     => params[:page],
-			})
- 		render :template => 'home/index'
+ 		# catch non-existent listing numbers, redirect to home
+ 		redirect_to '/'
  	else
 	 	render :template => 'listings/show'
    	end
