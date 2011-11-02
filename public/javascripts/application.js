@@ -36,6 +36,12 @@ $(document).ready(function(){
 		window.location = path	
 	});
 
+	$('input#zipcode').change( function() {
+		var path = replaceQueryString(window.location.href,"zipcode",$("#zipcode").val())
+		window.location = path	
+	});
+
+
 /*
 	$('select#ltype').change( function() {
 		var ltype = $("#ltype option:selected").val();

@@ -74,6 +74,10 @@ class FindController < ApplicationController
   	if(params.has_key?('price_high') ) then
   		skeys["LP-MAX"] = params[:price_high].to_i
   	end
+  	
+  	if(params.has_key?('zipcode') ) then
+  		skeys["ZP"] = params[:zipcode]
+  	end
 	
 	query = {}
 
@@ -98,6 +102,10 @@ class FindController < ApplicationController
 			 when 'LP-MAX'
 			 	if value.to_i > 0 then
 			 		query.merge!({ 'LP'.to_sym.lte => value.to_i })
+			 	end
+			 when 'ZP'
+			 	if value != "" then
+			 		query.merge!({ 'ZP'.to_sym.lte => value })
 			 	end
 			 when 'CIT', 'STATE', 'ZP'
 			   query.merge!({ key.to_sym => value })

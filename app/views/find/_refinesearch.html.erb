@@ -58,6 +58,12 @@
 							    <option value="Land" label="Land">Land</option>
 							</select>
 						</dd>
+						
+						<dt id="zipcode-label"><label for="zipcode" class="optional">ZIP CODE</label></dt>
+						<dd id="zipcode-element">
+							<input type="text" name="zipcode" id="zipcode" value="<%= params.has_key?('zipcode') ? params[:zipcode] : "" %>">
+						</dd>
+
 						<!--
 						<dt id="state-label"><label for="state" class="optional">STATE OR PROVINCE</label></dt>
 						<dd id="state-element">
@@ -129,10 +135,6 @@
 		    					<option value="" label="-- select --">-- select --</option>
 							</select>
 						</dd>
-						<dt id="zipcode-label"><label for="zipcode" class="optional">ZIP CODE</label></dt>
-						<dd id="zipcode-element">
-							<input type="text" name="zipcode" id="zipcode" value="">
-						</dd>
 						<dt id="assetts-label"><label for="assetts" class="optional">ASSETS WITHIN</label></dt>
 						<dd id="assetts-element">
 							<select name="assetts" id="assetts">
@@ -147,11 +149,12 @@
 							</select>
 						</dd>
 						-->
+<!-- 
 						<dt id="propertyid-label"><label for="propertyid" class="optional">PROPERTY ID</label></dt>
 						<dd id="propertyid-element">
 							<input type="text" name="propertyid" id="propertyid" value="">
 						</dd>
-<!--
+
 						<dt id="featured_homes-label"><label for="featured_homes" class="optional">FEATURED HOMES</label></dt>
 						<dd id="featured_homes-element">
 							<input type="hidden" name="featured_homes" value="0">
