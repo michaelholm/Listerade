@@ -1,26 +1,27 @@
-	<h2><%= @listings.total_entries %> Listings</h2>
+	<h2>Featured Listings</h2>
 	<%= will_paginate(@listings, :params => {:location => params['location'] }) %>
 	<% @listings.each do |listing| %>
-		<div class='search-result-item'>
-			<div id='listingImg'><img src="http://placehold.it/220x180&text=<%= listing.LN %>" /></div>
-			<h2>Listing ID: <a href='/listing/<%= listing.LN %>'><%= listing.LN %></a></h2>
-			<h3>Listing Price: <%= number_to_currency(listing.LP, :precision => 0) %></h3>
-			<p><strong><%= "#{listing.HSN} #{listing.CP} #{listing.STR} #{listing.STREETSUFFIX}" %><br /><%= "#{listing.CIT} #{listing.STATE} #{listing.ZP}" %></strong></p>
-			<p><span class='listingLabel'>Bedrooms</span>:  <%= listing.BR %></p>
-			<p><span class='listingLabel'>Bathrooms</span>:  <%= listing.BTH %></p>
-			<p><span class='listingLabel'>Approx. SQ Footage</span>: <%= listing.ASF %></p>
-			<p>
-			<span class='listingLabel'>Description</span>:<br />
-			<%= listing.REMARKS %>
-
+		<div class='featured-item'>
+			<div id='featured-tab'>FEATURED</div>
+			<div class='featured-listing-addr'><strong><%= "#{listing.HSN} #{listing.CP} #{listing.STR} #{listing.STREETSUFFIX}" %><br /><%= "#{listing.CIT} #{listing.STATE} #{listing.ZP}" %></strong></div>
+			<div class='featured-listing-img'><img src="http://placehold.it/120x90&text=<%= listing.LN %>" /></div>
+			<h2><%= number_to_currency(listing.LP, :precision => 0) %></h2>
+			<p><%= listing.BR %> Bed / <%= listing.BTH %> Bath</p>
+			<p><%= listing.ASF %> Sq Ft</p>
+			<div class="spacer"></div>
+			<div class='feature-links'>
+				<a class='preview-property' href='#'>Preview</a>  | <a class='add-to-faves' href='#'>Add to Favorites</a>
+				<a class='view-property' href='/listing/<%= listing.LN %>'>View Property</a>
+			</div>
 		</div>
+		<div class="spacer"></div>
 	<% end %>
 	<%= will_paginate(@listings, :params => { :location => params['location'] }) %>
 	
 			
 			
-			<div id="leftcontentbox1" style="margin-top:17px;">
-				<div id="leftcontentbox1">
+			<div id="contentbox" style="margin-top:17px;">
+				<div id="contentbox">
 					<div id="lefttoolbox">
 						<div id="toolbox" style="padding-top:8px">
 							<div id="toolboxcontent" align="center">
@@ -54,7 +55,7 @@
 						</div>
 					</div>
 					<div id="righttoolbox">
-						<div id="toolconetnt">
+						<div id="toolcontent">
 						
 							<div id="toolbox1">
 								<div id="bluetitle" style="padding-bottom:15px;">Who We Are?</div>
@@ -105,7 +106,7 @@
 							<div id="toolcontent"><img width="403" height="23" src="/images/separator1.png"></div>
 							
 							
-							<div id="toolconetnt">
+							<div id="toolcontent">
 								<div id="toolbox1">
 									<div id="bluetitle" style="padding-bottom:10px;">FAQs</div>
 									<div id="bluecontent">When most people think of auctions they think of buying but in order to buy, someone must be.</div>
@@ -148,7 +149,7 @@
 					</div>
 				</div>
 				
-				<div id="leftcontentbox2">
+				<div id="leftcontentbox">
 					<div id="bluebox">
 						<%= render :partial => "widgets/bankreonews" %>
 						

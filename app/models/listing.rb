@@ -19,11 +19,7 @@ class Listing
   key :OFFICE_FORM_NAME, String
   key :LP, Integer # listing price
 
-  
-  # remarks
-  key :REMARKS, String
-  
-  # property info
+  # property location info
   key :HSN, String # house number
   key :CP, String # compass point
   key :STR, String # street
@@ -42,13 +38,20 @@ class Listing
   key :BR, Integer # num bedrooms
   key :BTH, Float # num baths, in rets format i.e., 2.1
   key :RMS, Integer # num rooms
+  key :REMARKS, String
   
+  # geo location info
   key :longitude, Float
   key :latitude, Float
   key :normalized_address, String
   key :location, :type => Array, :geo => true, :lat => :latitude, :lng => :longitude
   
+  # categorization
   key :tags, Array
+  
+  #featured
+  key :featured, Boolean, :default => false
+  key :featured_weight, Integer
       
   timestamps!
   
