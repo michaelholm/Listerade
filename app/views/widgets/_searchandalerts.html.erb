@@ -4,8 +4,15 @@
 		<table width="100%" cellspacing="0" cellpadding="0" border="0">
  			<tbody>
  				<tr>
-	               <td valign="top" align="left"><p><a style="text-decoration:none;" href="/users/sign_in"><span class="style1">Log in</span></a> or <a style="text-decoration:none;" href="/users/sign_up"><span class="style1">create your free account</span></a> to see<br>
-	                  your saved and recently viewed properties.</p></td>
+	               <td valign="top" align="left">
+	               	<% if user_signed_in? %>
+           				<%= render :partial => 'users/tabs_savedsearches' %>
+	           		<% else %>
+						<p><a style="text-decoration:none;" href="/users/sign_in"><span class="style1">Log in</span></a> or <a style="text-decoration:none;" href="/users/sign_up"><span class="style1">create your free account</span></a> to see<br> your saved and recently viewed properties.</p>
+	           		<% end %>
+	               
+	               
+	               </td>
  				</tr>
 			</tbody>
 		</table>    

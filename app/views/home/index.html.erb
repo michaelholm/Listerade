@@ -1,26 +1,28 @@
-	<h2>Featured Listings</h2>
-	<%= will_paginate(@listings, :params => {:location => params['location'] }) %>
-	<% @listings.each do |listing| %>
-		<div class='featured-item'>
-			<div id='featured-tab'>FEATURED</div>
-			<div class='featured-listing-addr'><strong><%= "#{listing.HSN} #{listing.CP} #{listing.STR} #{listing.STREETSUFFIX}" %><br /><%= "#{listing.CIT} #{listing.STATE} #{listing.ZP}" %></strong></div>
-			<div class='featured-listing-img'><img src="http://placehold.it/120x90&text=<%= listing.LN %>" /></div>
-			<h2><%= number_to_currency(listing.LP, :precision => 0) %></h2>
-			<p><%= listing.BR %> Bed / <%= listing.BTH %> Bath</p>
-			<p><%= listing.ASF %> Sq Ft</p>
-			<div class="spacer"></div>
-			<div class='feature-links'>
-				<a class='preview-property' href='#'>Preview</a>  | <a class='add-to-faves' href='#'>Add to Favorites</a>
-				<a class='view-property' href='/listing/<%= listing.LN %>'>View Property</a>
-			</div>
-		</div>
-		<div class="spacer"></div>
-	<% end %>
-	<%= will_paginate(@listings, :params => { :location => params['location'] }) %>
-	
+<div id="contentbox" style="margin-top:17px;">
 			
-			
-			<div id="contentbox" style="margin-top:17px;">
+		<h2>Featured Listings</h2>
+		
+				<%= will_paginate(@listings, :params => {:location => params['location'] }) %>
+				<% @listings.each do |listing| %>
+					<div class='featured-item'>
+						<div id='featured-tab'>FEATURED</div>
+						<div class='featured-listing-addr'><strong><%= "#{listing.HSN} #{listing.CP} #{listing.STR} #{listing.STREETSUFFIX}" %><br /><%= "#{listing.CIT} #{listing.STATE} #{listing.ZP}" %></strong></div>
+						<div class='featured-listing-img'><img src="http://placehold.it/120x90&text=<%= listing.LN %>" /></div>
+						<h2><%= number_to_currency(listing.LP, :precision => 0) %></h2>
+						<p><%= listing.BR %> Bed / <%= listing.BTH %> Bath</p>
+						<p><%= listing.ASF %> Sq Ft</p>
+						<div class="spacer"></div>
+						<div class='feature-links'>
+							<a class='preview-property' href='/listing/<%= listing.LN %>/ajax' class='top_up'>Preview</a>  | <a class='add-to-faves' href='#'>Add to Favorites</a>
+							<a class='view-property' href='/listing/<%= listing.LN %>'>View Property</a>
+						</div>
+					</div>
+					<div class="spacer"></div>
+				<% end %>
+				<%= will_paginate(@listings, :params => { :location => params['location'] }) %>
+		
+				<div class="spacer" style='margin:10px 0;'></div>
+		
 				<div id="contentbox">
 					<div id="lefttoolbox">
 						<div id="toolbox" style="padding-top:8px">
@@ -208,7 +210,6 @@
 						</div>
 					</div>
 						
-					<%= render :partial => "widgets/topreomarkets" %>
 					<div id="bluebox1" align="center"><img width="550" height="82" src="/images/add.png"></div>
 				</div>
-			</div>
+</div>

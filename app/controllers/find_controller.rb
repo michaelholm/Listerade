@@ -160,6 +160,30 @@ class FindController < ApplicationController
    	end
    end
    
+  # Ajax Find by LN
+  def ajax_find_by_ln
+ 	@listing = Listing.where(:LN => params[:ln]).first
+ 	puts @listing.inspect
+ 	
+ 	# get gmap for the property location
+ 	@gmaps = @listing.to_gmaps4rails unless @listing.nil?
+ 	puts "GMAPS JSON: #{@gmaps}"
+ 	
+ 	if @listing.nil? then
+ 		# catch non-existent listing numbers, redirect to home
+ 		redirect_to '/'
+ 	else
+	 	render :template => 'listings/show_ajax', :layout => false
+   	end
+   end
+
+   
+  def favorite_listings
+  	if current_user then
+	  	@listings = current_user.fave_listings
+	end
+  end
+   
    def serializable_hash(options = {})
     super({:except => :password}.merge(options))
   end

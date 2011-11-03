@@ -1,5 +1,10 @@
 Mongo::Application.routes.draw do |map|
 
+#   # custom devise routes
+#   get "/login", :to => "devise/sessions#new" # Add a custom sign in route for user sign in
+#   get "/logout", :to => "devise/sessions#destroy" # Add a custom sing out route for user sign out
+#   get "/register", :to => "devise/registrations#new" # Add a Custom Route for Registrations
+
   devise_for :users
   
   # Resources
@@ -51,9 +56,10 @@ Mongo::Application.routes.draw do |map|
   get '/find_by_tag/:tag', :controller => 'find', :action => 'find_by_tag'
   get '/find(/:page)', :controller => 'find', :action => 'search'
   get '/listing/:ln', :controller => 'find', :action => 'find_by_ln'  # listing number
+  get '/listing/:ln/ajax', :controller => 'find', :action => 'ajax_find_by_ln'  # listing number_to_currency
   get '/listing/new', :controller => 'listings', :action => 'new'
   
-  
+  match '/users/dashboard', :controller => 'users', :action => 'dashboard' 
   # Default route to home/index
   root :to => "home#index"
   
