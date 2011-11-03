@@ -1,0 +1,23 @@
+<script language='javascript'>
+	$(function() {
+		$("#tabs").tabs();
+	});
+</script>
+
+<div id="tabs">
+	<ul>
+		<li><a href='#tabs-1'>Faves</a></li>
+		<li><a href='#tabs-2'>Saved Searches</a></li>
+		<li><a href='#tabs-3'>Account Profile</a></li>
+		<li><a href='#tabs-4'>Friends</a></li>
+	</ul>
+	<div id='tabs-1'><%= render :partial => 'tabs_faves' %></div>
+	<div id='tabs-2'><%= render :partial => 'tabs_savedsearches' %></div>
+	<div id='tabs-3'>
+		<%= render :template => 'devise/registrations/edit',:locals => { 
+                          :resource => current_user, 
+                          :resource_name => current_user } %>
+    </div>
+	<div id='tabs-4'><%= render :partial => 'tabs_friends' %></div>
+	
+</div>
