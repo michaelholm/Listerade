@@ -2,6 +2,12 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 $(document).ready(function(){ 
+
+	$("a.preview-property").mouseover(function() { $(this).nextAll("div.listing-popup:first").css("display", "block");});
+	
+	$("a.preview-property").mouseout(function() { $("div.listing-popup", this.parent).css("display", "none");});
+	
+	/* SEARCH */
 	$('select#bathrooms').change( function() {
 		var baths = $("#bathrooms option:selected").val();
 		var path = replaceQueryString(window.location.href,"baths",baths)
