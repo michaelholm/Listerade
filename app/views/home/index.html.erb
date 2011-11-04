@@ -13,10 +13,19 @@
 						<p><%= listing.ASF %> Sq Ft</p>
 						<div class="spacer"></div>
 						<div class='feature-links'>
-							<a class='preview-property' href='/listing/<%= listing.LN %>/ajax' class='top_up'>Preview</a>  | <a class='add-to-faves' href='#'>Add to Favorites</a>
+							<a class='preview-property' href='/listing/<%= listing.LN %>/ajax'>Preview</a>  | <a class='add-to-faves' href='#'>Add to Favorites</a>
 							<a class='view-property' href='/listing/<%= listing.LN %>'>View Property</a>
+							<!-- tooltip element -->
+							<div class="listing-popup">
+								<h2><%= number_to_currency(listing.LP, :precision => 0) %></h2>
+								<h3>This could really be it!</h3>
+							
+								<p><%= listing.REMARKS %></p>
+							</div>
 						</div>
 					</div>
+					
+
 					<div class="spacer"></div>
 				<% end %>
 				<%= will_paginate(@listings, :params => { :location => params['location'] }) %>
