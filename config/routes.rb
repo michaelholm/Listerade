@@ -55,7 +55,7 @@ Mongo::Application.routes.draw do |map|
   post '/find', :controller => 'find', :action => 'search'
   get '/find_by_tag/:tag', :controller => 'find', :action => 'find_by_tag'
   get '/find(/:page)', :controller => 'find', :action => 'search'
-  get '/listing/:ln', :controller => 'find', :action => 'find_by_ln'  # listing number
+  get '/listing/:ln', :controller => 'listings', :action => 'find_by_ln'  # listing number
   get '/listing/:ln/ajax', :controller => 'find', :action => 'ajax_find_by_ln'  # listing number_to_currency
   get '/listing/new', :controller => 'listings', :action => 'new'
   
