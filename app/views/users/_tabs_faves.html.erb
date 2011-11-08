@@ -1,5 +1,5 @@
 <h2>Favorite Properties</h2>
-	<% current_user.fave_listings.each do |ln| 
+	<% current_user.favorite_listings.each do |ln| 
 		  listing = Listing.where(:LN => ln.to_s).first
 	%>
 		<%= puts listing.to_s %>
@@ -7,12 +7,12 @@
 			<div id='favorite-tab'>FAVORITE</div>
 			<div class='favorite-listing-addr'><strong><%= "#{listing.HSN} #{listing.CP} #{listing.STR} #{listing.STREETSUFFIX}" %><br /><%= "#{listing.CIT} #{listing.STATE} #{listing.ZP}" %></strong></div>
 			<div class='favorite-listing-img'><img src="http://placehold.it/120x90&text=<%= listing.LN %>" /></div>
-			<h2><%= number_to_currency(listing.LP, :precision => 0) %></h2>
+			<h2 class='featured'><%= number_to_currency(listing.LP, :precision => 0) %></h2>
 			<p><%= listing.BR %> Bed / <%= listing.BTH %> Bath</p>
 			<p><%= listing.ASF %> Sq Ft</p>
 			<div class="spacer"></div>
 			<div class='favorite-links'>
-				<a class='preview-property' href='/listing/<%= listing.LN %>/ajax' class='top_up'>Preview</a>  | <a class='remove-fave' href='#'>Remove Favorite</a>
+				<a class='preview-property' href='/listing/<%= listing.LN %>/ajax' class='top_up'>Preview</a> <a class='toggle-faves-remove' id='<%= listing.LN %>' href='#'>Remove from Favorites</a>
 				<a class='view-property' href='/listing/<%= listing.LN %>'>View Property</a>
 			</div>
 		</div>
