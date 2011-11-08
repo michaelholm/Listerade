@@ -180,7 +180,7 @@ class FindController < ApplicationController
    
   def favorite_listings
   	if current_user then
-	  	@listings = current_user.fave_listings
+	  	@listings = current_user.favorite_listings
 	end
   end
    

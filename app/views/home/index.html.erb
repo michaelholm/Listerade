@@ -1,35 +1,6 @@
 <div id="contentbox" style="margin-top:17px;">
-			
-		<h2>Featured Listings</h2>
-		
-				<%= will_paginate(@listings, :params => {:location => params['location'] }) %>
-				<% @listings.each do |listing| %>
-					<div class='featured-item'>
-						<div id='featured-tab'>FEATURED</div>
-						<div class='featured-listing-addr'><strong><%= "#{listing.HSN} #{listing.CP} #{listing.STR} #{listing.STREETSUFFIX}" %><br /><%= "#{listing.CIT} #{listing.STATE} #{listing.ZP}" %></strong></div>
-						<div class='featured-listing-img'><img src="http://placehold.it/120x90&text=<%= listing.LN %>" /></div>
-						<h2><%= number_to_currency(listing.LP, :precision => 0) %></h2>
-						<p><%= listing.BR %> Bed / <%= listing.BTH %> Bath</p>
-						<p><%= listing.ASF %> Sq Ft</p>
-						<div class="spacer"></div>
-						<div class='feature-links'>
-							<a class='preview-property' href='/listing/<%= listing.LN %>/ajax'>Preview</a>  | <a class='add-to-faves' href='#'>Add to Favorites</a>
-							<a class='view-property' href='/listing/<%= listing.LN %>'>View Property</a>
-							<!-- tooltip element -->
-							<div class="listing-popup">
-								<h2><%= number_to_currency(listing.LP, :precision => 0) %></h2>
-								<h3>This could really be it!</h3>
-							
-								<p><%= listing.REMARKS %></p>
-							</div>
-						</div>
-					</div>
-					
-
-					<div class="spacer"></div>
-				<% end %>
-				<%= will_paginate(@listings, :params => { :location => params['location'] }) %>
-		
+		<div class='notification canhide' style="display:none;"></div>
+			<%= render :partial => 'featured_listings' %>		
 				<div class="spacer" style='margin:10px 0;'></div>
 		
 				<div id="contentbox">

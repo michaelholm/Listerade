@@ -4,11 +4,14 @@
   <head>
     <title>BREOS</title>
     <%= yield(:head) %>
+    <%= csrf_meta_tag %>
+    
 	<link type="text/css" rel="stylesheet" media="all" href="/stylesheets/pages.css?Z" />
 	<link type="text/css" rel="stylesheet" media="all" href="/stylesheets/menus.css?Z" />
 	<link type="text/css" rel="stylesheet" media="all" href="/stylesheets/bankreos.css?Z" />
 	<link type="text/css" rel="stylesheet" media="all" href="/stylesheets/pagination.css?Z" />
 	<link type="text/css" rel="stylesheet" media="all" href="/stylesheets/forms.css?Z" />
+	
 	<script type="text/javascript" src="/javascripts/jquery.js?Z"></script>
 	<script type="text/javascript" src="/javascripts/superfish.js?Z"></script>
 	<script type="text/javascript" src="/javascripts/jquery.bgiframe.min.js?Z"></script>
@@ -16,12 +19,16 @@
 	<script type="text/javascript" src="/javascripts/nice_menus.js?Z"></script>
 	<script type="text/javascript" src="/javascripts/on_the_spot.js?Z"></script>
 	
+	<!-- notifications -->
+	<script type="text/javascript" src="/javascripts/notifications/js/scripts.js?Z"></script>
+	<link type="text/css" rel="stylesheet" media="all" href="/stylesheets/notifications/css/styles.css?Z" />
+	
+	<!-- jquery ui components -->
 	<link type="text/css" href="/stylesheets/cupertino/jquery-ui-1.8.16.custom.css" rel="stylesheet" />	
 	<script type="text/javascript" src="/javascripts/jquery-ui-1.8.16.custom.min.js"></script>
-
+	<!-- custom js -->
 	<script type="text/javascript" src="/javascripts/application.js?Z"></script>	
-	<%= yield :head %>
-	<%= csrf_meta_tag %>
+	
  </head>
   <body>
   	<div id='header'>
