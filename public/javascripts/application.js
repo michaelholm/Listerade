@@ -7,6 +7,47 @@ $(document).ready(function(){
 	
 	$("a.preview-property").mouseout(function() { $("div.listing-popup", this.parent).css("display", "none");});
 	
+	/* Toggle property to favorites */
+	$("a.toggle-faves").click(function() {
+		var elem = 'a#'+this.id;
+		var listingid = this.id;
+		$.post("/users/favorites/toggle/" +listingid, 
+			function(data) {
+				$("div.notification").addClass("success").text("Fabulous. The item has been " + data).toggle();
+				
+				var anchor = $(elem);
+				if (data == 'added') {
+					anchor.html("Remove from Favorites"); 
+				} else { 
+					anchor.html("Add to Favorites"); 
+				}
+			}, 
+			'html'
+		);
+		return false;
+	});
+
+	/* Add a property to favorites */
+	$("a.toggle-faves-add").click(function() {
+		$.post("/users/favorites/add/" +this.id, function(data) { 
+			$("div.notification").addClass("success").text("Congratulations on your success. We've added the item to your favorites list.").toggle(); }, 'html' );
+	});
+	/* Remove a property from favorites */
+	$("a.toggle-faves-remove").click(function() {
+		var elem = 'a#'+this.id;
+		var listingid = this.id;	
+		$.post("/users/favorites/remove/" +listingid, function(data) { 
+			$("div.notification").addClass("delete")
+				.text("The item has been removed from your favorites list.")
+				.toggle();
+				// fade the parent div
+				$(elem).parents('.favorite-item:first').fadeOut(500);
+			}, 
+			'html' 
+		);
+		return false;
+	});	
+	
 	/* SEARCH */
 	$('select#bathrooms').change( function() {
 		var baths = $("#bathrooms option:selected").val();
