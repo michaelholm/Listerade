@@ -51,15 +51,22 @@ Mongo::Application.routes.draw do |map|
   match '/tools' => 'home#tools'
   #match '/brochure-request' => 'brochure#brochure'
   
+  # add to faves
+#  get  '/users/:user/favorites', :controller => 'users', :action => 'user_favorites_list'
+  post '/users/favorites/toggle/:listing_id', :controller => 'users', :action => 'toggle_favorite'
+  post '/users/favorites/add/:listing_id', :controller => 'users', :action => 'add_to_favorites'
+  post '/users/favorites/remove/:listing_id', :controller => 'users', :action => 'remove_from_favorites'
+
   # Search/Find
   post '/find', :controller => 'find', :action => 'search'
   get '/find_by_tag/:tag', :controller => 'find', :action => 'find_by_tag'
   get '/find(/:page)', :controller => 'find', :action => 'search'
   get '/listing/:ln', :controller => 'listings', :action => 'find_by_ln'  # listing number
-  get '/listing/:ln/ajax', :controller => 'find', :action => 'ajax_find_by_ln'  # listing number_to_currency
+  get '/listing/:ln/ajax', :controller => 'find', :action => 'ajax_find_by_ln'  # 
   get '/listing/new', :controller => 'listings', :action => 'new'
   
-  match '/users/dashboard', :controller => 'users', :action => 'dashboard' 
+  #get '/users/dashboard', :controller => 'users', :action => 'dashboard'
+  get '/users/:user', :controller => 'users', :action => 'dashboard' 
   # Default route to home/index
   root :to => "home#index"
   
