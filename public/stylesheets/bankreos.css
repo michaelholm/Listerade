@@ -1967,26 +1967,27 @@ div.search-result-item {
 .pagination { margin: 5px 0 0 10px; }
 	
 	
-div#listingImg { float:right; margin: 5px 5px 0 0; }
+div#listingImg { float:right; margin: 60px 5px 5px 0; }
 
 span.listingLabel { font-weight: bold; }
 
 /* FEATURED */
-.featured-item { border: 1px solid #efefef;clear:both; width:100%;}
+.featured-item { border: 1px solid #efefef;clear:both; width:100%; background-color: #f6fafd;margin-bottom:8px;}
 #featured-tab { height:16px;width:140px;color:#fff;text-align:center;top:0;left:0; clear:right;background-color: green; font-size: 9px;padding-top:4px;}
 div.featured-listing-addr { margin: 8px 0px 8px 8px;}
 div.featured-listing-img { float:left; margin: 0 8px 8px 8px;}
-.featured-item .feature-links { width:95%;padding:4px;margin:4px;height:12px; clear:both;}
+.featured-item .feature-links { width:95%;padding:4px;height:12px; clear:both;}
 .featured-item a.view-property { float:right;}
+div.feature-links { margin: 0 0 8px 4px;}
 
 /* DASHBOARD FAVORITES */
-.favorite-item { border: 1px solid #efefef;clear:both; width:100%;}
-#favorite-tab { height:16px;width:140px;color:#fff;text-align:center;top:0;left:0; clear:right;background-color: blue; font-size: 9px;padding-top:4px;}
+.favorite-item { border: 1px solid #efefef;clear:both; width:100%;background-color: #f6fafd;margin-bottom:8px; }
+#favorite-tab { height:16px;width:140px;color:#fff;text-align:center;top:0;left:0; clear:right;background-color: #a6b3bb; font-size: 9px;padding-top:4px;}
 div.favorite-listing-addr { margin: 8px 0px 8px 8px;}
 div.favorite-listing-img { float:left; margin: 0 8px 8px 8px;}
 .favorite-item .favorite-links { width:95%;padding:4px;margin:4px;height:12px; clear:both;}
 .favorite-item a.view-property { float:right;}
-
+div.favorite-links { margin: 0 0 8px 4px;}
 
 
 
@@ -1998,10 +1999,15 @@ div.listing-popup {
 	background-color: #3BAAE3;
 	border: 3px solid #2694EB;
 	height:120px;
-	padding:5px 20px 5px 20px;
+	padding:4px 8px 4px 8px;
 	width:260px;
 	font-size:10px;
 	color:#fff;
 	z-index:1001;
 }
+div.listing-popup h2 { border-bottom: 0px; margin: 0px 0px; padding-bottom:4px; }
+
+/* TYPOGRAPHY */
+h2 { border-bottom: 0px; margin: 0px 0px; padding-bottom:4px;}
+h2.featured { border-bottom: 0px; margin: 0px 0px; padding-bottom: 4px; }
 	
