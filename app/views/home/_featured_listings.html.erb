@@ -1,0 +1,34 @@
+<h2>Featured Listings</h2>
+<%= will_paginate(@listings, :params => {:location => params['location'] }) %>
+<% @listings.each do |listing| %>
+	<div class='featured-item'>
+		<div id='featured-tab'>FEATURED</div>
+		<div class='featured-listing-addr'><strong><%= "#{listing.HSN} #{listing.CP} #{listing.STR} #{listing.STREETSUFFIX}" %><br /><%= "#{listing.CIT} #{listing.STATE} #{listing.ZP}" %></strong></div>
+		<div class='featured-listing-img'><img src="http://placehold.it/120x90&text=<%= listing.LN %>" /></div>
+		<h2 class='featured'><%= number_to_currency(listing.LP, :precision => 0) %></h2>
+		<p><%= listing.BR %> Bed / <%= listing.BTH %> Bath</p>
+		<p><%= listing.ASF %> Sq Ft</p>
+		<div class="clearer"></div>
+		<div class='feature-links'>
+			<a class='preview-property' href='/listing/<%= listing.LN %>/ajax'>Preview</a>  
+			<% if user_signed_in? %>
+				<% if current_user.favorite_listings.include?(listing.LN) %>
+					<a class='toggle-faves' id='<%= listing.LN %>' href='#'>Remove from Favorites</a>
+				<% else %>
+					<a class='toggle-faves' id='<%= listing.LN %>' href='#'>Add to Favorites</a>
+				<% end %>
+			<% end %>
+			<a class='view-property' href='/listing/<%= listing.LN %>'>View Property</a>
+			<!-- tooltip element -->
+			<div class="listing-popup">
+				<h2><%= number_to_currency(listing.LP, :precision => 0) %></h2>
+				<h3>This could really be it!</h3>
+			
+				<p><%= listing.REMARKS %></p>
+			</div>
+		</div>
+	</div>
+	
+<% end %>
+<div class="spacer"></div>
+<%= will_paginate(@listings, :params => {:location => params['location'] }) %>
