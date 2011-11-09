@@ -1,0 +1,168 @@
+@charset "utf-8";
+@import url("../css/reset.css");
+@import url("../css/960.css");
+
+/* ------------------------------------------
+		GENERAL STYLING
+--------------------------------------------- */
+body					{
+	font-family: Tahoma, Arial;
+	background-color: #FFF;
+	font-size: 13px;
+	color: #666;
+}
+
+p						{ color: #858585; line-height: 1.5em;}
+h1,h2,h2,h4,h5 			{
+	font-family: Tahoma, Geneva, sans-serif;
+	margin-top: 20px;
+	font-weight: normal;
+	margin-bottom: 20px;
+	color: #666;
+}
+h2 						{
+	font-size: 24px;
+	letter-spacing: -1px;
+	color: #555555;
+	border-bottom: 1px solid #CCC;
+	margin-top: 25px;
+	padding-bottom: 10px;
+	font-family: Tahoma, Geneva, sans-serif;
+}
+
+/* -------------------------------------------
+		NOTIFICATIONS
+-------------------------------------------- */
+
+.notification {
+	cursor: pointer;
+	clear: both;
+	height: 40px;
+	font-size: 11px;
+	position: relative;
+	margin: 15px 0px 15px 0px;
+	padding: 10px 20px 10px 60px;
+	-moz-border-radius:4px;
+	-webkit-border-radius: 4px;	
+}
+.notification  p { color: #333; line-height: 40px;}
+
+.warning {
+	background-image: url(../images/error.png);
+	background-position: 15px center;
+	background-repeat: no-repeat;
+	border: 2px solid #FFC140;
+	background-color: #FFE1A4;
+}
+.success {
+	background-image: url(../images/accept.png);
+	background-position: 15px center;
+	background-repeat: no-repeat;
+	border: 2px solid #99C600;
+	background-color: #ECFFAA;
+}
+
+.failure {
+	background-image: url(../images/exclamation.png);
+	background-position: 15px center;
+	background-repeat: no-repeat;
+	border: 2px solid #EB5339;
+	background-color: #F8CBC2;
+}
+
+.information {
+	background-image: url(../images/information.png);
+	background-position: 15px center;
+	background-repeat: no-repeat;
+	border: 2px solid #418ACC;
+	background-color: #CFE0F1;
+}
+
+.lightbulb {
+	background-image: url(../images/lightbulb.png);
+	background-position: 15px center;
+	background-repeat: no-repeat;
+	border: 2px solid #D3A350;
+	background-color: #FEEFCB;
+}
+
+
+.reminder {
+	background-image: url(../images/bell.png);
+	background-position: 15px center;
+	background-repeat: no-repeat;
+	border: 2px solid #E7C785;
+	background-color: #FEFBF1;
+}
+
+.basket {
+	background-image: url(../images/basket.png);
+	background-position: 15px center;
+	background-repeat: no-repeat;
+	border: 2px solid #75D6FF;
+	background-color: #F4F4F4;
+}
+
+.addresses {
+	background-image: url(../images/book_addresses.png);
+	background-position: 15px center;
+	background-repeat: no-repeat;
+	border: 2px solid #DC9C56;
+	background-color: #F0E0CA;
+}
+
+.settings {
+	background-image: url(../images/cog.png);
+	background-position: 15px center;
+	background-repeat: no-repeat;
+	border: 2px solid #999;
+	background-color: #EAEBEC;
+}
+
+
+.comment {
+	background-image: url(../images/comment.png);
+	background-position: 15px center;
+	background-repeat: no-repeat;
+	border: 2px solid #B4DEFF;
+	background-color: #E5F9FF;
+}
+
+.date {
+	background-image: url(../images/date.png);
+	background-position: 15px center;
+	background-repeat: no-repeat;
+	border: 2px solid #F4A088;
+	background-color: #F2F2F3;
+}
+
+.delete {
+	background-image: url(../images/delete.png);
+	background-position: 15px center;
+	background-repeat: no-repeat;
+	border: 2px solid #F4A088;
+	background-color: #F9BFB5;
+}
+
+.email {
+	background-image: url(../images/email.png);
+	background-position: 15px center;
+	background-repeat: no-repeat;
+	border: 2px solid #BAE3FF;
+	background-color: #EAFFFF;
+}
+.help {
+	background-image: url(../images/help.png);
+	background-position: 15px center;
+	background-repeat: no-repeat;
+	border: 2px solid #5696D1;
+	background-color: #B4D2EF;
+}
+
+.user {
+	background-image: url(../images/user_green.png);
+	background-position: 15px center;
+	background-repeat: no-repeat;
+	border: 2px solid #8CC000;
+	background-color: #D8FF7D;
+}
