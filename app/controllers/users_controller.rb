@@ -88,8 +88,8 @@ class UsersController < ApplicationController
   	search = SavedSearch.where(:id => params[:id]).first
   	
   	qs = "location=#{CGI::escape(search.location)}"
-  	qs << "&bathrooms=#{search.bathrooms}" unless search.bathrooms.empty? 
-  	qs << "&bedrooms=#{search.bedrooms}" unless search.bedrooms.empty? 
+  	qs << "&bathrooms=#{search.bathrooms}" unless search.bathrooms.nil? 
+  	qs << "&bedrooms=#{search.bedrooms}" unless search.bedrooms.nil? 
   	
   	puts CGI::escape(qs)
   	
