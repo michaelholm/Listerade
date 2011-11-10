@@ -65,6 +65,9 @@ Mongo::Application.routes.draw do |map|
   get '/listing/:ln/ajax', :controller => 'find', :action => 'ajax_find_by_ln'  # 
   get '/listing/new', :controller => 'listings', :action => 'new'
   
+  post '/users/save-search', :controller => 'users', :action => 'save_search'
+  get '/users/saved-search/:id', :controller => 'users', :action => 'saved_search'
+  
   #get '/users/dashboard', :controller => 'users', :action => 'dashboard'
   get '/users/:user', :controller => 'users', :action => 'dashboard' 
   # Default route to home/index

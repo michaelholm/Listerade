@@ -51,12 +51,12 @@ class FindController < ApplicationController
   		params['zip'] = address_hash[:zip]
   	end
   	
-  	if(params.has_key?('baths') ) then
-  		skeys["BTH"] = "#{params[:baths].to_f}"
+  	if(params.has_key?('bathrooms') ) then
+  		skeys["BTH"] = "#{params[:bathrooms].to_f}"
   	end
   	
-  	if(params.has_key?('beds') ) then
-  		skeys["BR"] = params[:beds].to_i
+  	if(params.has_key?('bedrooms') ) then
+  		skeys["BR"] = params[:bedrooms].to_i
   	end
 
   	if(params.has_key?('minyear') ) then

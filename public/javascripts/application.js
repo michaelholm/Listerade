@@ -49,15 +49,72 @@ $(document).ready(function(){
 	});	
 	
 	/* SEARCH */
+	/* save search */
+	$('#search-save-btn').click(function() { 
+		var elem = 'a#'+this.id;
+		var listingid = this.id;
+		
+		// get the data from the form fields
+		var fieldsArr = new Array();
+		if ($('input[name=location]').val() != "") { fieldsArr['location'] = $('input[name=location]').val(); }
+        if ($('select[name=bedrooms]').val() != "") { fieldsArr['bedrooms'] = $('select[name=bedrooms]').val(); }
+        if ($('select[name=bathrooms]').val() != "") { fieldsArr['bathrooms'] = $('select[name=bathrooms]').val(); }
+        if ($('input[name=minyear]').val() != "") { fieldsArr['minyear'] = $('input[name=minyear]').val(); }
+        if ($('input[name=maxyear]').val() != "") { fieldsArr['maxyear'] = $('input[name=maxyear]').val(); }
+        if ($('select[name=price_low]').val() != "") { fieldsArr['price_low'] = $('select[name=price_low]').val(); }
+        if ($('select[name=price_high]').val() != "") { fieldsArr['price_high'] = $('select[name=price_high]').val(); }
+        if ($('select[name=property_type]').val() != "") { fieldsArr['property_type'] = $('select[name=property_type]').val(); }
+        if ($('input[name=zipcode]').val() != "") { fieldsArr['zipcode'] = $('input[name=zipcode]').val(); }
+ 		
+ 		// assemble vars into query string
+ 		var data = buildQueryString(fieldsArr);
+
+ 		$.ajax({
+            url: "/users/save-search", 
+            type: "POST",
+            data: data,     
+            cache: false,
+            success: function (html) {              
+                if (html==1) {        
+                     // success returned from post
+                
+                } else { 
+                	// fail returned from post
+                	alert('Sorry, unexpected error. Please try again later.');
+                }               
+            }       
+        });
+
+/*
+		$.post("/users/save_search", data,
+			function(data) {
+				$("div.notification").addClass("success").text("Great. We've saved your search.").toggle();
+				
+				var anchor = $(elem);
+				if (data == 'added') {
+					anchor.html("Remove from Favorites"); 
+				} else { 
+					anchor.html("Add to Favorites"); 
+				}
+			}, 
+			'html'
+		);
+*/
+
+		return false;
+
+	});
+	
+	/* perform search */
 	$('select#bathrooms').change( function() {
 		var baths = $("#bathrooms option:selected").val();
-		var path = replaceQueryString(window.location.href,"baths",baths)
+		var path = replaceQueryString(window.location.href,"bathrooms",baths)
 		window.location = path
 	});
 	
 	$('select#bedrooms').change( function() {
 		var beds = $("#bedrooms option:selected").val();
-		var path = replaceQueryString(window.location.href,"beds",beds)
+		var path = replaceQueryString(window.location.href,"bedrooms",beds)
 		window.location = path	
 	});
 	
@@ -118,6 +175,15 @@ $(document).ready(function(){
 	    else
 	        return url + '&' + param + "=" + value;
 	    
+	}
+	
+	function buildQueryString(arr) {
+	    var s = "";
+	    for ( var e in arr )
+	    {
+	       s += "&" + e + "=" + escape( arr[e] );
+	    }
+	    return s.substring(1);
 	}
 
 });

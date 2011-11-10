@@ -2010,4 +2010,8 @@ div.listing-popup h2 { border-bottom: 0px; margin: 0px 0px; padding-bottom:4px; 
 /* TYPOGRAPHY */
 h2 { border-bottom: 0px; margin: 0px 0px; padding-bottom:4px;}
 h2.featured { border-bottom: 0px; margin: 0px 0px; padding-bottom: 4px; }
-	
+
+/* SEARCH */
+
+div#save-search { float:right;}
+span#save-search-label { font-weight: bold; font-style: italic; font-size: 11px; vertical-align: super; }	

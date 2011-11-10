@@ -52,14 +52,48 @@ class UsersController < ApplicationController
   	end
   end
 
-
   def save_search()
   	if user_signed_in?
-  		# save the search
-  		# json = params.to_json
-  		# ss = SavedSearch.find_or_create_by_query(json)
-  		# ss.user = current_user
-  		# ss.save
+  	
+  		# all searches have location key, so only save search if it contains location in params
+  		if params.has_key?('location')
+  			search = SavedSearch.new
+  			search.location = params[:location]
+  		
+			if params.has_key?('bathrooms') then search.bathrooms = params[:bathrooms].to_f end
+		  	if params.has_key?('bedrooms') then search.bedrooms = params[:bedrooms].to_i end
+		  	if params.has_key?('minyear') then search.built_min = params[:minyear].to_i end
+		  	if params.has_key?('maxyear') then search.built_max = params[:minyear].to_i end
+		  	if params.has_key?('price_low') then search.price_low = params[:price_low].to_i end
+		  	if params.has_key?('price_high') then search.price_high = params[:price_high].to_i end
+		  	if params.has_key?('zipcode') then search.zip = params[:zipcode] end
+		  	if params.has_key?('property_type') then search.property_type = params[:property_type] end
+			# add in search results count
+	  	
+	  		@user = current_user
+	  		@user.saved_searches << search
+			search.save
+			
+			message = 1
+		else
+			message = 0
+		end
   	end
+  	
+  	render :text => message	
+  
   end
+  
+  def saved_search
+  	search = SavedSearch.where(:id => params[:id]).first
+  	
+  	qs = "location=#{CGI::escape(search.location)}"
+  	qs << "&bathrooms=#{search.bathrooms}" unless search.bathrooms.empty? 
+  	qs << "&bedrooms=#{search.bedrooms}" unless search.bedrooms.empty? 
+  	
+  	puts CGI::escape(qs)
+  	
+  	redirect_to "/find?#{qs}"
+  end
+  
 end

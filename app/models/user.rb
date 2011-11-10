@@ -39,6 +39,8 @@ class User
   # favorite listings
   key :favorite_listings, Array
   
+  many :saved_searches
+  
   #key :friendship_ids, Array
   #many :friends, :in => :friendship_ids, :class_name => 'User'
 

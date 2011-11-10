@@ -1,5 +1,13 @@
 <h2>Saved Searches</h2>
-<% 5.times do | s | %>
-	<div id='savedsearch'><%= "Saved search number #{s+1}" %></div> 
-<% end %>
-<p>&nbsp;</p>
+	<% current_user.saved_searches.each do |ss| %>
+		<div class='saved-search-item'>
+			<div id='favorite-tab'>SAVED SEARCH </div>
+			<p><a href='/users/saved-search/<%= ss.id %>'><%= ss.id %></a></p>
+			<p><%= ss.bedrooms %> Bed / <%= ss.bathrooms %> Bath</p>
+			<div class="spacer"></div>
+			<div class='favorite-links'>
+				<a class='toggle-faves-remove' id='<%= ss.id %></a>' href='#'>Delete</a>
+			</div>
+		</div>
+		<div class="spacer"></div>
+	<% end %><p>&nbsp;</p>

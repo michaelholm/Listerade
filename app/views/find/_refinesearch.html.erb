@@ -7,15 +7,16 @@
 		<div class="mid1">
 			<div id="Advance_search">
 				<form enctype="application/x-www-form-urlencoded" method="get" action="" name='advsearchform'>
+					<div id='save-search'><span id='save-search-label'>Save your Search</span> <img src="/images/icons/save.png" id='search-save-btn' /></div>
+					
 					<dl class="advsearch_form">
-
-						<dd id="bathrooms-element">
+						<dd id="bathrooms-element" style="float:left;">
 						<label for="bathrooms" class="optional">BATHS</label><br />
-							<%= select_tag "bathrooms", options_for_select([['1 or more', 1], ['2 or more', 2], ['3 or more', 3], ['4 or more', 4], ['5 or more', 5], ['6 or more', 6], ['7 or more', 7]], :selected => params['baths']) %>
+							<%= select_tag "bathrooms", options_for_select([['1 or more', 1], ['2 or more', 2], ['3 or more', 3], ['4 or more', 4], ['5 or more', 5], ['6 or more', 6], ['7 or more', 7]], :selected => params['bathrooms']) %>
 						</dd>
 						<dt id="bedrooms-label"><label for="bedrooms" class="optional">BEDS</label></dt>
 						<dd id="bedrooms-element">
-							<%= select_tag "bedrooms", options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6], ['7', 7]], :selected => params['beds']) %>
+							<%= select_tag "bedrooms", options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6], ['7', 7]], :selected => params['bedrooms']) %>
 							
 						</dd>
 						<dt id="minyear-label"><label for="minyear" class="optional">MIN YEAR</label></dt>
@@ -25,9 +26,9 @@
 						<dd id="maxyear-element">
 							<input type="text" name="maxyear" id="maxyear" value="<%= params.has_key?('maxyear') ? params[:maxyear] : "" %>">
 						</dd>
-						<dt id="bedrooms-label"><label for="bedrooms" class="optional">PRICE</label></dt>
+						<dt id="bedrooms-label"><label for="price" class="optional">PRICE</label></dt>
 						<dd id="bedrooms-element">
-							<%= select_tag "price_low", options_for_select([['$10K',10000], ['$20K',20000], ['$30K',30000], ['$50K',50000], ['$100K',100000], 
+							<%= select_tag "price_low", options_for_select([['--select--', ''], ['$10K',10000], ['$20K',20000], ['$30K',30000], ['$50K',50000], ['$100K',100000], 
 								['$130K',130000], ['$150K',150000], ['$200K',200000], ['$250K',250000], ['$300K',300000],
 								['$350K',350000], ['$400K',400000], ['$450K',450000], ['$500K',500000], ['$550K',550000],
 								['$600K',600000], ['$650K',650000], ['$700K',700000], ['$750K',750000], ['$800K',800000],
@@ -36,7 +37,7 @@
 								['$1.8M',1800000], ['$1.9M',1900000], ['$2M',2000000], ['$2.25M',2250000], ['$2.5M',2500000],
 								['$2.75M',2750000], ['$3M',3000000], ['$3.25M',3250000], ['$3.5M',3500000], ['$3.75M',3750000],
 								['$4M',4000000], ['$4.5M',4500000], ['$5M',5000000], ['$5.5M',5500000], ['$6M',6000000],
-								['$7.5M',7500000], ['$10M',10000000], ['$15M',15000000], ['$20M',20000000]], :selected => params['price_low']) %> to <%= select_tag "price_high", options_for_select([['$10K',10000], ['$20K',20000], ['$30K',30000], ['$50K',50000], ['$100K',100000], 
+								['$7.5M',7500000], ['$10M',10000000], ['$15M',15000000], ['$20M',20000000]], :selected => params['price_low']) %> to <%= select_tag "price_high", options_for_select([['--select--', ''], ['$10K',10000], ['$20K',20000], ['$30K',30000], ['$50K',50000], ['$100K',100000], 
 								['$130K',130000], ['$150K',150000], ['$200K',200000], ['$250K',250000], ['$300K',300000],
 								['$350K',350000], ['$400K',400000], ['$450K',450000], ['$500K',500000], ['$550K',550000],
 								['$600K',600000], ['$650K',650000], ['$700K',700000], ['$750K',750000], ['$800K',800000],
@@ -51,117 +52,20 @@
 
 						<dt id="ltype-label"><label for="ltype" class="optional">PROPERTY TYPE</label></dt>
 						<dd id="ltype-element">
-							<select name="ltype" id="ltype">
+							<select name="property_type" id="ltype">
 							    <option value="" label="-- select --">-- select --</option>
-							    <option value="AnyType" label="Any Type">Any Type</option>
-							    <option value="Residential" label="Residential" selected="selected">Residential</option>
-							    <option value="Commercial" label="Commercial">Commercial</option>
-							    <option value="Land" label="Land">Land</option>
+							    <option value="any" label="Any Type">Any Type</option>
+							    <option value="residential" label="Residential" selected="selected">Residential</option>
+							    <option value="commercial" label="Commercial">Commercial</option>
+							    <option value="land" label="Land">Land</option>
 							</select>
 						</dd>
 						
 						<dt id="zipcode-label"><label for="zipcode" class="optional">ZIP CODE</label></dt>
 						<dd id="zipcode-element">
-							<input type="text" name="zipcode" id="zipcode" value="<%= params.has_key?('zipcode') ? params[:zipcode] : "" %>">
+							<input type="text" name="zipcode" id="zipcode" value="<%= params.has_key?('zipcode') ? params[:zipcode] : "" %>" />
 						</dd>
 
-						<!--
-						<dt id="state-label"><label for="state" class="optional">STATE OR PROVINCE</label></dt>
-						<dd id="state-element">
-							<select name="state" id="state">
-							    <option value="" label="-- select --">-- select --</option>
-							    <option value="AL" label="Alabama">Alabama</option>
-							    <option value="AK" label="Alaska">Alaska</option>
-							    <option value="AZ" label="Arizona">Arizona</option>
-							    <option value="AR" label="Arkansas">Arkansas</option>
-							    <option value="CA" label="California">California</option>
-							    <option value="CO" label="Colorado">Colorado</option>
-							    <option value="CT" label="Connecticut">Connecticut</option>
-							    <option value="DE" label="Delaware">Delaware</option>
-							    <option value="DC" label="District Of Columbia">District Of Columbia</option>
-							    <option value="FL" label="Florida">Florida</option>
-							    <option value="GA" label="Georgia">Georgia</option>
-							    <option value="HI" label="Hawaii">Hawaii</option>
-							    <option value="ID" label="Idaho">Idaho</option>
-							    <option value="IL" label="Illinois">Illinois</option>
-							    <option value="IN" label="Indiana">Indiana</option>
-							    <option value="IA" label="Iowa">Iowa</option>
-							    <option value="KS" label="Kansas">Kansas</option>
-							    <option value="KY" label="Kentucky">Kentucky</option>
-							    <option value="LA" label="Louisiana">Louisiana</option>
-							    <option value="ME" label="Maine">Maine</option>
-							    <option value="MD" label="Maryland">Maryland</option>
-							    <option value="MA" label="Massachusetts">Massachusetts</option>
-							    <option value="MI" label="Michigan">Michigan</option>
-							    <option value="MN" label="Minnesota">Minnesota</option>
-							    <option value="MS" label="Mississippi">Mississippi</option>
-							    <option value="MO" label="Missouri">Missouri</option>
-							    <option value="MT" label="Montana">Montana</option>
-							    <option value="NE" label="Nebraska">Nebraska</option>
-							    <option value="NV" label="Nevada">Nevada</option>
-							    <option value="NH" label="New Hampshire">New Hampshire</option>
-							    <option value="NJ" label="New Jersey">New Jersey</option>
-							    <option value="NM" label="New Mexico">New Mexico</option>
-							    <option value="NY" label="New York">New York</option>
-							    <option value="NC" label="North Carolina">North Carolina</option>
-							    <option value="ND" label="North Dakota">North Dakota</option>
-							    <option value="OH" label="Ohio">Ohio</option>
-							    <option value="OK" label="Oklahoma">Oklahoma</option>
-							    <option value="OR" label="Oregon">Oregon</option>
-							    <option value="PA" label="Pennsylvania">Pennsylvania</option>
-							    <option value="RI" label="Rhode Island">Rhode Island</option>
-							    <option value="SC" label="South Carolina">South Carolina</option>
-							    <option value="SD" label="South Dakota">South Dakota</option>
-							    <option value="TN" label="Tennessee">Tennessee</option>
-							    <option value="TX" label="Texas">Texas</option>
-							    <option value="UT" label="Utah">Utah</option>
-							    <option value="VT" label="Vermont">Vermont</option>
-							    <option value="VA" label="Virginia">Virginia</option>
-							    <option value="WA" label="Washington">Washington</option>
-							    <option value="WV" label="West Virginia">West Virginia</option>
-							    <option value="WI" label="Wisconsin">Wisconsin</option>
-							    <option value="WY" label="Wyoming">Wyoming</option>
-							</select>
-						</dd>
-						<dt id="county-label"><label for="county" class="optional">COUNTY</label></dt>
-						<dd id="county-element">
-							<select name="county" id="county">
-							    <option value="" label="-- select --">-- select --</option>
-							</select>
-						</dd>
-						
-						<dt id="city-label"><label for="city" class="optional">CITY</label></dt>
-						<dd id="city-element">
-							<select name="city" id="city">
-		    					<option value="" label="-- select --">-- select --</option>
-							</select>
-						</dd>
-						<dt id="assetts-label"><label for="assetts" class="optional">ASSETS WITHIN</label></dt>
-						<dd id="assetts-element">
-							<select name="assetts" id="assetts">
-							    <option value="" label="-- select --">-- select --</option>
-							    <option value="1" label="1">1</option>
-							    <option value="2" label="2">2</option>
-							    <option value="3" label="3">3</option>
-							    <option value="4" label="4">4</option>
-							    <option value="5" label="5">5</option>
-							    <option value="6" label="6">6</option>
-							    <option value="7" label="7 or more">7 or more</option>
-							</select>
-						</dd>
-						-->
-<!-- 
-						<dt id="propertyid-label"><label for="propertyid" class="optional">PROPERTY ID</label></dt>
-						<dd id="propertyid-element">
-							<input type="text" name="propertyid" id="propertyid" value="">
-						</dd>
-
-						<dt id="featured_homes-label"><label for="featured_homes" class="optional">FEATURED HOMES</label></dt>
-						<dd id="featured_homes-element">
-							<input type="hidden" name="featured_homes" value="0">
-							<input type="checkbox" name="featured_homes" id="featured_homes" value="1">
-						</dd>
--->
 						<dt id="refine_search-label">&#160;</dt><dd id="refine_search-element">
 						<button name="refine_search" id="refine_search" type="submit"></button></dd>
 						<dt id="start_over-label">&#160;</dt>
@@ -169,6 +73,7 @@
 							<button name="start_over" id="start_over" type="submit">start over</button>
 						</dd>
 					</dl>
+					<input type="hidden" name="location" id="location" value="<%= params.has_key?('location') ? params[:location] : "" %>" />
 				</form>
 			</div>
 		</div>
