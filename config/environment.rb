@@ -8,10 +8,10 @@ Mongo::Application.initialize!
 require 'will_paginate'
 
 ActionMailer::Base.smtp_settings = {
-  :user_name => "app1097050@heroku.com",
-  :password => "k3ucnfee",
-  :domain => "stark-sunset.heroku.com",
-  :address => "smtp.sendgrid.net",
+  :user_name => "",
+  :password => "",
+  :domain => "",
+  :address => "",
   :port => 587,
   :authentication => :plain,
   :enable_starttls_auto => true
