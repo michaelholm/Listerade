@@ -21,5 +21,3 @@ rails console
 
 All of this assumes that you've installed Rails 3 and have a mongod process running.
 
-MongoDB - http://www.mongodb.org/
-
