@@ -1,4 +1,4 @@
-== MongoDB Rails Application
+== MongoDB Rails Search Application
 
 This is a search application built using Rails 3, MongoDB, and MongoMapper. It's meant to provide high-speed search functionality for real estate listings. The search appliance will accept JSON formatted search criteria and a POST input, and will return JSON formatted search results, which will contain some basic search result info, and listing id's for all properties returned in the the search.
 
